@@ -15,6 +15,8 @@
 @import 'bourbon/bourbon';
 
 $degree: 10deg;
+$blue: #002d62;
+$gray: #6e6e6e;
 
 html,
 body {
@@ -286,10 +288,6 @@ main {
 
   }
 
-  .content {
-    margin: 0px;
-    height: 100%;
-  }
 }
 
 /** Larger Screens - desktops and tablets **/
@@ -444,6 +442,53 @@ main {
   .jumbo .slider-item {
     width: 33%;
     height: 391px;
+    opacity: 0.3;
+    position: relative;
+
+    legend {
+      @include transform(skew(0deg));
+      position: absolute;
+      left: 30px;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(255,255,255,0.8);
+      width: 100%;
+      height: 122px;
+    }
+
+    .content {
+      padding: 13px 5px 13px 36px;
+      margin-right: 0;
+    }
+
+    h3, p, h5 {
+      padding-top: 0;
+    }
+
+    h3, h4, h5 {
+      color: $blue;
+    }
+
+    h3 {
+      font-size: 17px;
+    }
+
+    h5, p {
+      font-size: 11px;
+      line-height: 14px;
+      margin-top: 5px;
+      margin-bottom: 8px;
+    }
+
+
+  }
+  .jumbo .slider-item.active,
+  .jumbo .slider-item:hover {
+    opacity: 1;
+    cursor: pointer;
   }
   .jumbo .slider-item .content {
     @include transform(skew($degree));
@@ -459,51 +504,67 @@ main {
 
 }
 
-
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 300;
-  src: url(/fonts/RobotoCondensed-Light.eot);
-  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(/fonts/RobotoCondensed-Light.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Light.woff) format('woff');
+span.legend,
+label.legend,
+legend {
+  @include transform(skew($degree));
+  color: white;
+  background-color: #c41230;
+  font-weight: bold;
+  padding: 1px 10px;
 }
 
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/RobotoCondensed-Regular.eot);
-  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(/fonts/RobotoCondensed-Regular.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Regular.woff) format('woff');
+/* Calendars */
+$lightgray: #f2f2f2;
+$primary: #c41230;
+
+table.calendar {
+  * {
+    border-top-color: #efefef;
+    border-bottom-color: #efefef;
+    border-left-color: #efefef;
+    border-right-color: #efefef;
+  }
+  td,th {
+    font-size: 11px;
+    text-transform: uppercase;
+    line-height: 11px;
+  }
+  thead {
+    border-width: 1px;
+    border-style: solid;
+    tr {
+      background-color: $lightgray;
+      th {
+        color: $gray;
+      }
+      th.header {
+        color: $blue;
+      }
+    }
+  }
+  tbody {
+    tr {
+      background-color: white;
+      td.active {
+        background-color: $primary;
+        color: white;
+      }
+      td {
+        text-align: center;
+        border-width: 1px;
+        border-style: solid;
+      }
+    }
+  }
 }
 
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 700;
-  src: url(/fonts/RobotoCondensed-Bold.eot);
-  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Bold'), url(/fonts/RobotoCondensed-Bold.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Bold.woff) format('woff');
+/* end calendars */
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: $gray;
 }
 
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: italic;
-  font-weight: 300;
-  src: url(/fonts/RobotoCondensed-LightItalic.eot);
-  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(/fonts/RobotoCondensed-LightItalic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-LightItalic.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: italic;
-  font-weight: 400;
-  src: url(/fonts/RobotoCondensed-Italic.eot);
-  src: local('Roboto Condensed Italic'), local('RobotoCondensed-Italic'), url(/fonts/RobotoCondensed-Italic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Italic.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: italic;
-  font-weight: 700;
-  src: url(/fonts/RobotoCondensed-BoldItalic.eot);
-  src: local('Roboto Condensed Bold Italic'), local('RobotoCondensed-BoldItalic'), url(/fonts/RobotoCondensed-BoldItalic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-BoldItalic.woff) format('woff');
-}
+@import '_fonts';
