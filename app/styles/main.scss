@@ -40,10 +40,14 @@ body {
   background-color: #fff;
   box-sizing: border-box;
   min-height: 100%;
+
 }
 
 body.open {
   overflow: hidden;
+  height: 100%;
+  max-height: 100%;
+  position: fixed;
 }
 
 button.menu {
@@ -62,8 +66,10 @@ button.menu.open {
 }
 
 a {
-  color: $primary;
-  text-decoration: none;
+  &, &:link, &:visited {
+    color: $primary;
+    text-decoration: none;
+  }
   &:hover, &:focus, &:active {
     color: $blue;
   }
@@ -191,7 +197,8 @@ a {
 p,
 ul,
 ol {
-  font-size: 19px;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .navdrawer-container {
@@ -277,7 +284,7 @@ main {
 
 main {
   /* Height of the header */
-  padding: 66px 0px 16px;
+  padding: 66px 0px 1px;
   min-height: 100%;
 }
 
@@ -567,6 +574,7 @@ legend {
 }
 
 table.calendar {
+
   margin-top: 0;
   * {
     border-top-color: #efefef;
@@ -618,6 +626,11 @@ footer {
   text-align: center;
   font-size: 11px;
   color: $gray;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 /* scaffolding */
@@ -627,22 +640,31 @@ footer {
   @include clearfix;
   @include display(flex);
   @include flex-direction(column-reverse);
+  &.flow {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+}
 
+.pad {
+  padding: 21px;
 }
 
 .column {
-  padding: 21px;
+
   .legend {
     margin-top: 3px;
     margin-bottom: 25px;
   }
 }
 
+
 .column--thirds {
   @include flex(1);
   float: none;
   width: 100%;
 }
+
 
 .second--column {
   @include order(1);
@@ -662,11 +684,11 @@ footer {
     @include order();
     border-left: 1px solid $grayborder;
     border-right: 1px solid $grayborder;
-    @include flex(.91);
+    @include flex(.92);
   }
 
   .first--column {
-    @include flex(.83);
+    @include flex(.844);
   }
 
   .third--column {
@@ -675,7 +697,12 @@ footer {
 
 }
 
-.button--primary {
+.events .row .column--thirds {
+  padding: 3px;
+}
+
+.button--primary, a.button--primary {
+
   color: $blue;
   border-radius: 3px;
   padding: 9px 13px;
@@ -683,6 +710,26 @@ footer {
   line-height: 11px;
   border: 1px solid $grayborder;
   @include linear-gradient(#fbfbfb, $grayborder, $grayborder);
+}
+
+aside p {
+  padding-top: 0;
+}
+
+aside.widget {
+  border-bottom: 1px solid $grayborder;
+  @extend .pad;
+}
+
+aside.widget:last-child {
+  border: 0px;
+}
+
+.events {
+  display: none;
+  @media (min-width: 990px) {
+    display: block;
+  }
 }
 
 @import '_fonts';
