@@ -557,6 +557,9 @@ main {
 }
 
 span.legend,
+h1.legend,
+h2.legend,
+h3.legend,
 div.legend,
 label.legend,
 legend {
@@ -567,6 +570,8 @@ legend {
   font-weight: bold;
   padding: 1px 10px;
   clear: both;
+  font-size: 16px;
+line-height: 1.6250em;
 }
 
 .clearfix {
@@ -716,12 +721,13 @@ aside p {
   padding-top: 0;
 }
 
-aside.widget {
+aside.widget, .posts article {
   border-bottom: 1px solid $grayborder;
   @extend .pad;
 }
 
-aside.widget:last-child {
+aside.widget:last-child,
+.posts article:last-child {
   border: 0px;
 }
 
@@ -731,5 +737,20 @@ aside.widget:last-child {
     display: block;
   }
 }
+
+.posts {
+  .pad:first-child {
+    padding-bottom: 0;
+  }
+
+  article.pad:nth-of-type(1) {
+    padding-top: 0;
+  }
+
+  article h3 {
+    padding-top: 0;
+  }
+}
+
 
 @import '_fonts';
