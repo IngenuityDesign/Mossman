@@ -17,6 +17,13 @@
 $degree: 10deg;
 $blue: #002d62;
 $gray: #6e6e6e;
+$grayborder: #e6e6e6;
+$oldgrayborder: #e0e1df;
+
+/* Calendars */
+$lightgray: #f2f2f2;
+$red: #c41230;
+$primary: $red;
 
 html,
 body {
@@ -51,6 +58,14 @@ button.menu.open {
     color: white;
     background-color: white;
     fill: white;
+  }
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  &:hover, &:focus, &:active {
+    color: $blue;
   }
 }
 
@@ -186,7 +201,7 @@ ol {
   bottom: 0;
   width: 85%;
   height: 100%;
-  background-color: #c41230;
+  background-color: $red;
   color: #fefefe;
   -webkit-transform: translate(-100%, 0);
           transform: translate(-100%, 0);
@@ -216,7 +231,7 @@ main {
 
 .navdrawer-container h4 {
   background-color: transparent;
-  color: #c41230;
+  color: $red;
   border-bottom: 1px solid #b0001c;
   height: 66px;
 }
@@ -282,8 +297,8 @@ main {
   position: relative;
   height: 456px;
   @include flex(1);
-  border-right: 1px solid #e0e1df;
-  border-left: 1px solid #e0e1df;
+  border-right: 1px solid $grayborder;
+  border-left: 1px solid $grayborder;
   overflow: hidden;
 
   &:before {
@@ -541,16 +556,18 @@ legend {
   display: inline-block;
   @include transform(skew(-$degree));
   color: white;
-  background-color: #c41230;
+  background-color: $red;
   font-weight: bold;
   padding: 1px 10px;
+  clear: both;
 }
 
-/* Calendars */
-$lightgray: #f2f2f2;
-$primary: #c41230;
+.clearfix {
+  @include clearfix;
+}
 
 table.calendar {
+  margin-top: 0;
   * {
     border-top-color: #efefef;
     border-bottom-color: #efefef;
@@ -608,20 +625,64 @@ footer {
 .row {
   /* gutter? nah */
   @include clearfix;
+  @include display(flex);
+  @include flex-direction(column-reverse);
+
+}
+
+.column {
+  padding: 21px;
+  .legend {
+    margin-top: 3px;
+    margin-bottom: 25px;
+  }
 }
 
 .column--thirds {
-  @include display(flex);
-  @include flex-direction(column);
+  @include flex(1);
+  float: none;
+  width: 100%;
+}
+
+.second--column {
+  @include order(1);
+
 }
 
 @media (min-width: 990px) {
-
-  .column--thirds {
-    width: 33%;
-    float: left;
+  .row {
+    @include flex-direction(row);
   }
 
+  .column {
+
+  }
+
+  .second--column {
+    @include order();
+    border-left: 1px solid $grayborder;
+    border-right: 1px solid $grayborder;
+    @include flex(.91);
+  }
+
+  .first--column {
+    @include flex(.83);
+  }
+
+  .third--column {
+
+  }
+
+}
+
+.button--primary {
+  color: $blue;
+  border-radius: 3px;
+  padding: 9px 13px;
+  font-size: 11px;
+  line-height: 11px;
+  border: 1px solid $grayborder;
+  @include linear-gradient(#fbfbfb, $grayborder, $grayborder);
 }
 
 @import '_fonts';
