@@ -54,6 +54,20 @@ button.menu.open {
   }
 }
 
+.header-bg {
+  background-color: white;
+  height: 64px;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  @media (min-width: 990px) {
+    display: none;
+  }
+}
+
 .app-bar {
   display: block;
   width: 100%;
@@ -133,16 +147,16 @@ button.menu.open {
 }
 
 .header-wrapper button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
 }
 
 .header-wrapper button:focus {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
   outline: 0;
 }
 
 .header-wrapper button:active {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: transparent;
 }
 
 .promote-layer {
@@ -261,13 +275,12 @@ main {
 .jumbo {
   @include display(flex);
   @include flex-direction(column);
-
 }
 
 .slider-item {
   width: 100%;
   position: relative;
-  height: 250px;
+  height: 456px;
   @include flex(1);
   border-right: 1px solid #e0e1df;
   border-left: 1px solid #e0e1df;
@@ -289,6 +302,48 @@ main {
   }
 
 }
+
+
+.jumbo .slider-item {
+  legend {
+    @include transform(skew(0deg));
+    position: absolute;
+    left: 30px;
+  }
+  display: none;
+  &.active {
+    display: block;
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8);
+    width: 100%;
+    height: auto;
+    padding: 24px;
+  }
+  h3, p, h5 {
+    padding-top: 0;
+  }
+
+  h3, h4, h5 {
+    color: $blue;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  h5, p {
+    font-size: 11px;
+    line-height: 14px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+  }
+}
+
+
 
 /** Larger Screens - desktops and tablets **/
 @media all and (min-width: 990px) {
@@ -344,7 +399,7 @@ main {
     float: right;
   }
 
-  .app-bar::after {
+  .app-bar:after {
     content: ' ';
     display: block;
     height: 0;
@@ -441,22 +496,14 @@ main {
   }
   .jumbo .slider-item {
     width: 33%;
+    display: block;
     height: 391px;
     opacity: 0.3;
     position: relative;
 
-    legend {
-      @include transform(skew(0deg));
-      position: absolute;
-      left: 30px;
-    }
-
     .bottom {
-      position: absolute;
-      bottom: 0;
-      background-color: rgba(255,255,255,0.8);
-      width: 100%;
       height: 122px;
+      padding: 0;
     }
 
     .content {
@@ -464,24 +511,7 @@ main {
       margin-right: 0;
     }
 
-    h3, p, h5 {
-      padding-top: 0;
-    }
 
-    h3, h4, h5 {
-      color: $blue;
-    }
-
-    h3 {
-      font-size: 17px;
-    }
-
-    h5, p {
-      font-size: 11px;
-      line-height: 14px;
-      margin-top: 5px;
-      margin-bottom: 8px;
-    }
 
 
   }
@@ -505,9 +535,11 @@ main {
 }
 
 span.legend,
+div.legend,
 label.legend,
 legend {
-  @include transform(skew($degree));
+  display: inline-block;
+  @include transform(skew(-$degree));
   color: white;
   background-color: #c41230;
   font-weight: bold;
@@ -526,9 +558,10 @@ table.calendar {
     border-right-color: #efefef;
   }
   td,th {
-    font-size: 11px;
+    font-size: 7px;
+    padding: 0px;
     text-transform: uppercase;
-    line-height: 11px;
+    line-height: 9px;
   }
   thead {
     border-width: 1px;
@@ -539,6 +572,9 @@ table.calendar {
         color: $gray;
       }
       th.header {
+        font-size: 9px;
+        font-weight: bold;
+        line-height: 13px;
         color: $blue;
       }
     }
@@ -565,6 +601,27 @@ footer {
   text-align: center;
   font-size: 11px;
   color: $gray;
+}
+
+/* scaffolding */
+
+.row {
+  /* gutter? nah */
+  @include clearfix;
+}
+
+.column--thirds {
+  @include display(flex);
+  @include flex-direction(column);
+}
+
+@media (min-width: 990px) {
+
+  .column--thirds {
+    width: 33%;
+    float: left;
+  }
+
 }
 
 @import '_fonts';
