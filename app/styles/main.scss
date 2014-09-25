@@ -752,5 +752,31 @@ aside.widget:last-child,
   }
 }
 
+.breadcrumbs-header {
+  background-color: #f0f0f0;
+  border-bottom: 2px solid white;
+  -webkit-box-shadow: inset 0px 3px 9px 0px rgba(50, 50, 50, 0.69);
+-moz-box-shadow:    inset 0px 3px 9px 0px rgba(50, 50, 50, 0.69);
+box-shadow:         inset 0px 3px 9px 0px rgba(50, 50, 50, 0.69);
+}
+
+.breadcrumbs {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  & > li {
+    &:before {
+      content: '| ';
+    }
+    &:first-child:before {
+      content: "";
+    }
+    padding-left: 10px;
+    padding-right: 5px;
+    display: inline-block;
+    a {
+
+    }
+  }
+}
 
 @import '_fonts';
