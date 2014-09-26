@@ -455,50 +455,55 @@ main {
 
   .navdrawer-container ul li a {
     height: 34px;
-    padding: 9px 0;
+    padding: 9px 14px;
     text-align: center;
     min-width: 85px;
     font-size: 13px;
     line-height: 16px;
     color: #787878;
     font-weight: bold;
-
   }
 
   .navdrawer-container ul li {
-    background-repeat: no-repeat;
-    background-image: url(../images/nav-any.png);
-    background-size: contain;
-    width: 104px;
-    padding-right: 9px;
+    border-bottom: 0px;
+    border-color: #cacaca;
+    display: inline-block;
+    margin-left: -3px;
+
+    border-right: 1px solid #cacaca;
+    border-top: 1px solid #cacaca;
+    &.active, &:hover {
+      & > a {
+        background-color: $primary;
+        color: white;
+      }
+    }
   }
 
   .navdrawer-container ul li:last-child {
-    background-image: url(../images/nav-first.png);
-    width: 113px;
-    padding-left: 6px;
-    padding-right: 9px;
+
   }
 
   .navdrawer-container ul li:first-child {
-    background-image: url(../images/nav-last.png);
-    width: 114px;
-    padding-left: 0px;
-    padding-right: 18px;
+    border-left: 1px solid #cacaca;
+    margin-left: 0px;
   }
 
+  .navdrawer-container {
+    text-align: right;
+  }
   .navdrawer-container ul {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 864px;
-    -webkit-flex-direction: row-reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    margin-right: 4px;
+    @include transform(skew(-$degree));
+    background-color: white;
+    display: inline-block;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   }
 
   .navdrawer-container ul li {
-    border: none;
+
   }
 
   main {
@@ -513,6 +518,7 @@ main {
   }
 
   .jumbo {
+    width: 100%;
     @include transform(skew(-$degree));
     @include flex-direction(row);
   }
@@ -754,10 +760,10 @@ aside.widget:last-child,
 
 .breadcrumbs-header {
   background-color: #f0f0f0;
-  border-bottom: 2px solid white;
-  -webkit-box-shadow: inset 0px 3px 9px 0px rgba(50, 50, 50, 0.69);
--moz-box-shadow:    inset 0px 3px 9px 0px rgba(50, 50, 50, 0.69);
-box-shadow:         inset 0px 3px 9px 0px rgba(50, 50, 50, 0.69);
+
+  -webkit-box-shadow: inset 0px 3px 9px 0px rgba(50, 50, 50, 0.29);
+-moz-box-shadow:    inset 0px 3px 9px 0px rgba(50, 50, 50, 0.29);
+box-shadow:         inset 0px 3px 9px 0px rgba(50, 50, 50, 0.29);
 }
 
 .breadcrumbs {
@@ -777,6 +783,29 @@ box-shadow:         inset 0px 3px 9px 0px rgba(50, 50, 50, 0.69);
 
     }
   }
+}
+
+main .header {
+  .promote-layer {
+    @include display(flex);
+    @include flex-direction(row);
+  }
+  .column--left {
+    background-color: $primary;
+    color: white;
+  }
+}
+
+.column--left {
+  @include flex(1);
+}
+.column--right {
+  @include flex(2.423);
+}
+
+.main-container .column--right {
+  border-left: 1px solid $grayborder;
+  margin-left: 4px;
 }
 
 @import '_fonts';
