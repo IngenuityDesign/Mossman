@@ -792,7 +792,7 @@ main .header {
   }
   .column--left {
     background-color: $primary;
-    color: white;
+    &, a {color: white;}
   }
 }
 
