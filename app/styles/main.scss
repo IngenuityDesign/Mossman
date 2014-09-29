@@ -243,13 +243,15 @@ main {
   height: 66px;
 }
 
-.navdrawer-container ul {
+.navdrawer-container ul,
+ul.navtabs {
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-.navdrawer-container ul li a {
+.navdrawer-container ul li a,
+ul.navtabs li a {
   display: block;
   text-decoration: none;
   color: white;
@@ -258,27 +260,32 @@ main {
   white-space: nowrap;
 }
 
-.navdrawer-container ul li {
+.navdrawer-container ul li,
+ul.navtabs li {
   border-bottom-style: solid;
   border-width: 1px;
   border-color: #b0001c;
   padding: 0;
 }
 
-.navdrawer-container ul li::before {
+.navdrawer-container ul li::before,
+ul.navtabs li:before {
   content: none;
 }
 
-.navdrawer-container ul li a:hover {
+.navdrawer-container ul li a:hover,
+ul.navtabs li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.navdrawer-container ul li a:focus {
+.navdrawer-container ul li a:focus,
+ul.navtabs li a:focus {
   background-color: rgba(255, 255, 255, 0.3);
   outline: 0;
 }
 
-.navdrawer-container ul li a:active {
+.navdrawer-container ul li a:active,
+ul.navtabs li a:active {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -453,7 +460,8 @@ main {
     display: none;
   }
 
-  .navdrawer-container ul li a {
+  .navdrawer-container ul li a,
+  ul.navtabs li a {
     height: 34px;
     padding: 9px 14px;
     text-align: center;
@@ -464,7 +472,8 @@ main {
     font-weight: bold;
   }
 
-  .navdrawer-container ul li {
+  .navdrawer-container ul li,
+  ul.navtabs li {
     border-bottom: 0px;
     border-color: #cacaca;
     display: inline-block;
@@ -484,7 +493,8 @@ main {
 
   }
 
-  .navdrawer-container ul li:first-child {
+  .navdrawer-container ul li:first-child,
+  ul.navtabs li:first-child {
     border-left: 1px solid #cacaca;
     margin-left: 0px;
   }
@@ -492,18 +502,20 @@ main {
   .navdrawer-container {
     text-align: right;
   }
-  .navdrawer-container ul {
+  .navdrawer-container ul,
+  ul.navtabs {
     margin-right: 4px;
     @include transform(skew(-$degree));
     background-color: white;
     display: inline-block;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
--moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   }
 
-  .navdrawer-container ul li {
 
+
+  .navdrawer-container ul {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   }
 
   main {
@@ -844,6 +856,10 @@ main .header {
       line-height: 21px;
       margin-bottom: 8px;
     }
+    p {
+      font-size: 11px;
+      line-height: 15px;
+    }
     header h4 {
       margin: 0;
       padding: 0;
@@ -854,6 +870,128 @@ main .header {
       line-height: 13px;
     }
 
+    h3, h4 {
+      font-size: 13px;
+      margin: 0;
+      color: $blue;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 11px;
+    }
+
+    h5 {
+      text-transform: none;
+      font-size: 11px;
+      margin: 0;
+      margin-bottom: 6px;
+      color: $blue;
+      font-weight: 600;
+    }
+
+    .stackable-grid {
+      p {
+        padding-top: 0;
+      }
+    }
+
+  }
+}
+
+hr {
+  color: #e6e6e6;
+  background-color: #e6e6e6;
+  margin: 16px 0;
+  border-color: #e6e6e6;
+  border: 0;
+  border-top: 1px solid #e6e6e6;
+}
+
+.sidenav {
+  padding: 0 25px;
+  .left {
+    border-right: 1px solid #b0001c;
+    height: 150px;
+  }
+  ul {
+    padding: 25px;
+
+
+    margin: 0;
+    list-style-type: none;
+    li {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 23px;
+
+      color: white;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      &:before {
+        content: "";
+      }
+
+    }
+  }
+}
+
+ul.navtabs {
+  &, li, a {
+    border-color: white !important;
+  }
+
+  a {
+    background-color: #e6e6e6;
+  }
+
+}
+
+.maps {
+  padding-top: 33px;
+    .viewport {
+      border: 1px solid #e6e6e6;
+      margin-left: -2px;
+      padding: 20px;
+
+      ul.views {
+        padding: 0px;
+        margin: 0px;
+        & > li {
+          padding: 0px;
+          margin: 0px;
+          &:before {
+            content: "";
+          }
+
+
+          p {
+            max-width: 60%;
+            margin-bottom: 15px;
+          }
+
+          img {
+            float: left;
+            &.float-right {
+              margin-left: 2px;
+              margin-bottom: 2px;
+            }
+          }
+
+        }
+      }
+    }
+}
+
+.stackable-grid {
+  @include clearfix;
+  .grid-item {
+    float: left;
+  }
+  .grid-item-4 {
+    width: 25%;
   }
 }
 
