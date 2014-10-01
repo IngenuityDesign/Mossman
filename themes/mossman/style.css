@@ -1784,7 +1784,7 @@ main {
     content: "";
     position: absolute;
     z-index: -1;
-    background-image: url(../content/cyclists.png);
+    background-image: url(public/content/cyclists.png);
     background-position: top center;
     background-repeat: no-repeat;
     width: 100%;
