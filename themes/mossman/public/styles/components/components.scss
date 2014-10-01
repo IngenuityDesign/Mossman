@@ -4,15 +4,15 @@
 *
 **/
 
-@import '_utils';
-@import '_normalize';
-@import '_global';
+@import 'utils';
+@import 'normalize';
+@import 'global';
 
 // Icons - Leave it here to otherfiles can extend if needed
 @import '_components/_icons';
 
 // Color Palette
-@import '_palette';
+@import 'palette';
 
 // Modules
 //@import '_modules/_highlight';
@@ -53,4 +53,4 @@
 //@import '_pages/_page-resources';
 
 // Make sure this is last to override anything else :)
-@import '_helper';
+@import 'helper';

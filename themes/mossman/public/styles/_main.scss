@@ -5,14 +5,14 @@
  * Web Starter Kit team.
  *
  */
-@import '_h5bp';
+@import 'h5bp';
 
 /*
  * Visual Style Guide styles
  * Remove if you prefer to use a CSS library, like Bootstrap
  */
 @import 'components/components';
-@import 'bourbon/bourbon';
+@import 'bourbon/_bourbon';
 
 $degree: 10deg;
 $blue: #002d62;
@@ -995,4 +995,4 @@ ul.navtabs {
   }
 }
 
-@import '_fonts';
+@import 'fonts';
