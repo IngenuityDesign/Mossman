@@ -41,7 +41,19 @@
             <?php get_sidebar(); ?>
             <div class="column--right main-content event">
                 <article class="pad">
+
                     <?php the_post(); ?>
+                    <header>
+                        <div class="register">
+                            <a href="#register" class="button--secondary button">Register</a>
+                        </div>
+
+                        <h2><?php the_title(); ?>/h2>
+
+                        <h4>08.24.14 | 6:30a start</h4>
+                        <h4>Seaside Park, Bridgeport, CT 06601</h4>
+
+                    </header>
                     <?php the_content(); ?>
 
                 </article>

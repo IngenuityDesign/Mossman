@@ -445,7 +445,6 @@ main {
     width: 640px;
     float: right;
     height: auto;
-    margin-top: 0;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
     -webkit-transition: none;
@@ -453,7 +452,7 @@ main {
     overflow-y: auto;
     background: transparent;
     color: #787878;
-    margin-top: 50px;
+    margin-top: 49px;
   }
 
   .navdrawer-container h4 {
@@ -650,8 +649,8 @@ footer {
   font-size: 11px;
   color: $gray;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
--moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   padding-top: 18px;
   padding-bottom: 18px;
 }
@@ -663,10 +662,11 @@ box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   @include clearfix;
   @include display(flex);
   @include flex-direction(column-reverse);
-  &.flow {
+
+  /*&.flow {
     flex-flow: row wrap;
     justify-content: space-around;
-  }
+  }*/
 }
 
 .pad {
@@ -681,9 +681,7 @@ box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   }
 }
 
-
 .column--thirds {
-  @include flex(1);
   float: none;
   width: 100%;
 }
@@ -691,12 +689,12 @@ box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 
 .second--column {
   @include order(1);
-
 }
 
 @media (min-width: 990px) {
   .row {
     @include flex-direction(row);
+    @include flex(1);
   }
 
   .column {
@@ -705,17 +703,17 @@ box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 
   .second--column {
     @include order();
+    @include flex(1);
     border-left: 1px solid $grayborder;
     border-right: 1px solid $grayborder;
-    @include flex(.92);
   }
 
   .first--column {
-    @include flex(.844);
+    @include flex(0 0 365px);
   }
 
   .third--column {
-
+    @include flex(0 0 433px);
   }
 
 }

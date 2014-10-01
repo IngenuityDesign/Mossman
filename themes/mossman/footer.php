@@ -1,8 +1,10 @@
+
+    <footer>
+        © TEAM MOSSMAN 2014 ABOUT PRIVACY
+    </footer>
+
 </main>
 
-<footer>
-    © TEAM MOSSMAN 2014 ABOUT PRIVACY
-</footer>
 
 <!-- build:js scripts/main.min.js -->
 <script src="public/scripts/main.js"></script>

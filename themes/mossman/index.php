@@ -45,28 +45,32 @@
 <div class="container">
 <div class="row">
 <!-- rows -->
-<?php get_sidebar('left'); ?>
-
-<div class="column--thirds second--column column main-content events">
-<article class="pad">
-<div><span class="legend">Events</span></div>
-<!-- we could use google scaffolding here but i dont know if theres much of a reason -->
-
-<div class="row flow">
-    <?php for ($i = 0; $i < 3; $i++): ?>
-    <div class="column--thirds">
-        <?php make_calendar($i+1, 2014); ?>
+    <div class="column--thirds first--column column">
+        <?php get_sidebar('left'); ?>
     </div>
-    <?php endfor; ?>
-</div>
 
-</div>
-</article>
-<!-- calendar template -->
+    <div class="column--thirds second--column column main-content events">
 
-</div>
+        <article class="pad">
+            <div><span class="legend">Events</span></div>
+                <!-- we could use google scaffolding here but i dont know if theres much of a reason -->
 
-    <?php get_sidebar('right'); ?>
+                <div class="row flow">
+                    <?php for ($i = 0; $i < 3; $i++): ?>
+                    <div class="column--thirds">
+                        <?php mossman_make_calendar($i+1, 2014); ?>
+                    </div>
+                    <?php endfor; ?>
+                </div>
+
+        </article>
+    <!-- calendar template -->
+
+    </div>
+
+    <div class="column--thirds last third--column column">
+        <?php get_sidebar('right'); ?>
+    </div>
 <!-- /row -->
 </div>
 
