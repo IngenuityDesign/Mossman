@@ -113,13 +113,14 @@ add_action('admin_head', 'mossman_event_help_tab');
 
 /** [/Sidebar Registration] **/
 
-function mossman_make_calendar($month, $year) {
-    $month = $month % 12; //make 11 the maximum
+function mossman_make_calendar($month, $year, $events=false) {
+    $month = $month % 13; //make 12 the maximum
     $days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
     $timestamp_of_first_day = strtotime(sprintf('01-%s-%s', $month, $year));
     $start = date('N', $timestamp_of_first_day);
 
     //name of month
+    //$year_end = preg_replace("#^20#", "", $year);
     $name_of_month = date('F', $timestamp_of_first_day);
     ?>
     <table class="calendar" cols="7">
@@ -141,19 +142,80 @@ function mossman_make_calendar($month, $year) {
             <tr>
         <?php
         // Fun part
-        for ($i = 1; $i < 43; $i++):
+        for ($i = 1; $i < 43; $i++): $date = $i - $start;
             if (($i - 1) % 7 == 0): ?>
                 </tr><tr>
             <?php endif; ?>
-            <?php if ($i <= $start || ($i - $start) > $days): ?>
+            <?php if ($i <= $start || $date > $days): ?>
                 <td class="empty">&nbsp;</td>
             <?php else: ?>
-                <td><?php echo $i - $start; ?></td>
+                <?php
+                $class = '';
+                  if ($events) {
+                      //lets create the string
+                      $keystring = sprintf('%02d.%s.%s', $month, $date, $year);
+                      if (array_key_exists($keystring, $events)) {
+                          $the_event = $events[$keystring];
+                          //we have an event
+                          $class = 'active';
+                          $date = sprintf('<a style="color: white;" href="%s" title="%s">%s</a>', $the_event['link'], $the_event['title'], $date);
+                      }
+                  }
+                ?>
+                <td class="<?php echo $class; ?>"><?php echo $date ?></td>
             <?php endif;
         endfor; ?>
             </tr>
         </tbody>
     </table>
 <?php
+
+}
+
+function mossman_need_acf_login_error() {
+    global $error;
+
+    $error = "Mossman theme needs Advanced Custom Fields to work correctly. Please enable it.";
+
+}
+if (!function_exists('get_fields'))
+    add_action('login_head', 'mossman_need_acf_login_error');
+
+if (!is_admin() && !function_exists('get_fields') && !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) {
+    //Redirect to login and display a toast
+    auth_redirect();
+}
+
+function mossman_get_events() {
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'event',
+        'suppress_filters' => true
+    );
+
+    $posts = get_posts($args);
+
+    //title, time, link, and date
+
+    $events = array();
+
+    foreach($posts as $post) {
+        $id = $post->ID;
+        $title = $post->post_title;
+        $date = get_field( "race_date", $id);
+        $time = get_field( "race_time", $id);
+        $link = get_permalink( $id );
+
+        list($month,$day,$year) = explode('.', $date);
+        $events[$date] = array(
+            'title' => $title,
+            'date' => $date,
+            'time' => $time,
+            'link' => $link
+        );
+
+    }
+
+    return $events;
 
 }

@@ -56,10 +56,14 @@
                 <!-- we could use google scaffolding here but i dont know if theres much of a reason -->
 
                 <div class="row flow">
-                    <?php for ($i = 0; $i < 3; $i++): ?>
+                    <?php for ($i = 1; $i <= 12; $i++): ?>
                     <div class="column--thirds">
-                        <?php mossman_make_calendar($i+1, 2014); ?>
+                        <?php mossman_make_calendar($i, 2014, mossman_get_events()); ?>
                     </div>
+                    <?php if ($i%3 == 0): ?>
+                    </div><div class="row flow">
+                    <?php endif; ?>
+
                     <?php endfor; ?>
                 </div>
 

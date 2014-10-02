@@ -53,7 +53,7 @@
 
     <header class="app-bar promote-layer">
         <div class="app-bar-container">
-            <h1 class="logo"><img src="<?php print MOSSMAN_THEME_URI ?>/public/images/logo.png" alt="Team Mossman"></h1>
+            <a href="<?php echo get_site_url(); ?>" class="logo"><img src="<?php print MOSSMAN_THEME_URI ?>/public/images/logo.png" alt="Team Mossman"></a>
         </div>
     </header>
 
