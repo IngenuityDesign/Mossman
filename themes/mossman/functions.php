@@ -3,6 +3,7 @@
 /** [Constants] **/
 
 define('MOSSMAN_THEME_URI', dirname(get_stylesheet_uri()));
+define('MOSSMAN_THEME_VERSION', 1);
 
 /** [Theme Support] **/
 
@@ -15,6 +16,18 @@ add_action( 'wp_enqueue_scripts', 'mossman_add_main_style');
 
 function mossman_add_main_style() {
     wp_enqueue_style( 'main-css', get_stylesheet_uri() );
+}
+
+add_action( 'wp_enqueue_scripts', 'mossman_add_js' );
+
+function mossman_add_js() {
+
+    wp_enqueue_script( 'modernizr', MOSSMAN_THEME_URI . '/public/scripts/modernizr.min.js', array(), MOSSMAN_THEME_VERSION );
+    wp_enqueue_script( 'respond', MOSSMAN_THEME_URI . '/public/scripts/respond.min.js', array(), MOSSMAN_THEME_VERSION );
+
+    wp_enqueue_script( 'qtip', MOSSMAN_THEME_URI . '/public/scripts/jquery.qtip.min.js', array( 'jquery' ), MOSSMAN_THEME_VERSION, true);
+    wp_enqueue_script( 'holder', MOSSMAN_THEME_URI . '/public/scripts/holder.js', array(), MOSSMAN_THEME_VERSION, true);
+    wp_enqueue_script( 'main-js', MOSSMAN_THEME_URI . '/public/scripts/main.js', array( 'jquery' ), MOSSMAN_THEME_VERSION, true);
 }
 
 /** [Menu Registration] **/
@@ -158,7 +171,8 @@ function mossman_make_calendar($month, $year, $events=false) {
                           $the_event = $events[$keystring];
                           //we have an event
                           $class = 'active';
-                          $date = sprintf('<a style="color: white;" href="%s" title="%s">%s</a>', $the_event['link'], $the_event['title'], $date);
+                          $desc = sprintf("%s | %s start", $the_event['date'], $the_event['time']);
+                          $date = sprintf('<a style="color: white;" href="%s" title="%s" data-desc="%s">%s</a>', $the_event['link'], $the_event['title'], $desc, $date);
                       }
                   }
                 ?>

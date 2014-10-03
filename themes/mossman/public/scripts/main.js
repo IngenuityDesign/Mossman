@@ -16,35 +16,89 @@
  *  limitations under the License
  *
  */
-(function () {
+jQuery(function ($) {
   'use strict';
 
   var querySelector = document.querySelector.bind(document);
 
-  var navdrawerContainer = querySelector('.navdrawer-container');
-  var body = document.body;
-  var appbarElement = querySelector('.app-bar');
-  var menuBtn = querySelector('.menu');
-  var main = querySelector('main');
+  var navdrawerContainer = $('.navdrawer-container');
+  var body = $('body');
+  var appbarElement = $('.app-bar');
+  var menuBtn = $('.menu');
+  var main = $('main');
 
   function closeMenu() {
-    body.classList.remove('open');
-    navdrawerContainer.classList.remove('open');
-    menuBtn.classList.remove('open');
+    body.removeClass('open');
+    navdrawerContainer.removeClass('open');
+    menuBtn.removeClass('open');
   }
 
   function toggleMenu() {
-    body.classList.toggle('open');
-    menuBtn.classList.toggle('open');
-    navdrawerContainer.classList.toggle('open');
-    navdrawerContainer.classList.add('opened');
+    body.toggleClass('open');
+    menuBtn.toggleClass('open');
+    navdrawerContainer.toggleClass('open');
+    navdrawerContainer.addClass('opened');
   }
 
-  main.addEventListener('click', closeMenu);
-  menuBtn.addEventListener('click', toggleMenu);
-  navdrawerContainer.addEventListener('click', function (event) {
-    if (event.target.nodeName === 'A' || event.target.nodeName === 'LI') {
-      closeMenu();
-    }
+  main.on('click', closeMenu);
+  menuBtn.on('click', toggleMenu);
+  navdrawerContainer.on('click', function (e) {
+    closeMenu();
   });
-})();
+
+});
+
+jQuery(function($) {
+
+    $.each($('.calendar td.active a'), function() {
+
+        var content = '<h4>' + $(this).attr('title') + '</h4><p>' + $(this).attr('data-desc') + '</p>';
+
+        $(this).qtip({ // Grab some elements to apply the tooltip to
+            content: {
+                text: content
+            },
+            style: {classes: 'calendar-qtip'},
+            position: {
+                my: 'bottom center',
+                at: 'top center',
+                adjust: {
+                    y: -20
+                }
+            },
+            hide: {
+                fixed: true,
+                delay: 100,
+                event: 'click mouseleave'
+            },
+            show: {
+                solo: true
+            },
+            target: $(this)
+        })
+
+    });
+
+    $('.legend').qtip({ // Grab some elements to apply the tooltip to
+        content: {
+            text: 'haide'
+        },
+        style: {classes: 'calendar-qtip'},
+        position: {
+            my: 'bottom center',
+            at: 'top center',
+            adjust: {
+                y: -20
+            }
+        },
+        hide: {
+            fixed: true,
+            delay: 100,
+            event: 'click mouseleave'
+        },
+        show: {
+            solo: true
+        },
+        target: $(this)
+    });
+})

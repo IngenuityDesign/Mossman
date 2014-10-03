@@ -5,11 +5,6 @@
 
 </main>
 
-
-<!-- build:js scripts/main.min.js -->
-<script src="public/scripts/main.js"></script>
-<!-- endbuild -->
-
 <?php wp_footer(); ?>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>

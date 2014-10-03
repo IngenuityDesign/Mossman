@@ -50,6 +50,13 @@ body.open {
   position: fixed;
 }
 
+
+/** QTIP */
+
+@import '_qtip';
+
+/** QTIP */
+
 button.menu {
   position: fixed;
   top: 0;
@@ -228,7 +235,7 @@ main {
 }
 
 .navdrawer-container h4,
-.navdrawer-container ul li a {
+.navdrawer-container > ul > li > a {
   height: 52px;
   padding: 0px 42px;
   line-height: 52px;
@@ -459,7 +466,7 @@ main {
     display: none;
   }
 
-  .navdrawer-container ul li a,
+  .navdrawer-container > ul > li > a,
   ul.navtabs li a {
     height: 34px;
     padding: 9px 14px;
@@ -471,7 +478,7 @@ main {
     font-weight: bold;
   }
 
-  .navdrawer-container ul li,
+  .navdrawer-container > ul > li,
   ul.navtabs li {
     border-bottom: 0px;
     border-color: #cacaca;
@@ -488,11 +495,11 @@ main {
     }
   }
 
-  .navdrawer-container ul li:last-child {
+  .navdrawer-container > ul > li:last-child {
 
   }
 
-  .navdrawer-container ul li:first-child,
+  .navdrawer-container > ul > li:first-child,
   ul.navtabs li:first-child {
     border-left: 1px solid #cacaca;
     margin-left: 0px;
@@ -500,8 +507,9 @@ main {
 
   .navdrawer-container {
     text-align: right;
+    overflow: visible;
   }
-  .navdrawer-container ul,
+  .navdrawer-container > ul,
   ul.navtabs {
     margin-right: 4px;
     @include transform(skew(-$degree));
@@ -509,13 +517,43 @@ main {
     display: inline-block;
   }
 
-
-
-  .navdrawer-container ul {
+  .navdrawer-container > ul {
     -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
     box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+
+    position: relative;
+
+    & > li {
+      position: static;
+    }
+
+    .sub-menu {
+      position: absolute;
+      top: 35px;
+      margin-left: 3px;
+      width: 100%;
+      @include transform(skew($degree));
+      background-color: $primary;
+      padding: 5px;
+      & > li a {
+        padding: 5px;
+        height: 35px;
+        line-height: 25px;
+      }
+
+    }
+
+    .sub-menu {
+      display: none;
+    }
+
+    & > li:hover .sub-menu {
+      display: block;
+    }
+
   }
+
 
   main {
     padding-top: 0;
@@ -993,4 +1031,4 @@ ul.navtabs {
   }
 }
 
-@import 'fonts';
+//@import 'fonts';
