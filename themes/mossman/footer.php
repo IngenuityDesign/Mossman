@@ -1,6 +1,10 @@
 
     <footer>
-        © TEAM MOSSMAN 2014 ABOUT PRIVACY
+        © TEAM MOSSMAN 2014
+        <?php wp_nav_menu( array(
+            'theme_location' => 'footer',
+            'container' => ''
+        ) ); ?>
     </footer>
 
 </main>

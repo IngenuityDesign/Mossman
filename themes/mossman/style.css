@@ -2757,3 +2757,23 @@ ul.navtabs a {
 
 .calendar td a {
   display: block; }
+
+footer .menu {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  font-size: 11px;
+  color: #6e6e6e;
+  display: inline-block; }
+  footer .menu li {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+    footer .menu li:before {
+      content: none; }
+  footer .menu li a {
+    padding: 0;
+    margin: 0;
+    color: #6e6e6e; }
+    footer .menu li a:hover {
+      text-decoration: underline; }
