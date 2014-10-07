@@ -7,7 +7,7 @@ Version: 0.1
 License: EULA
 **/
 
-
+@import 'public/styles/_flexslider';
 @import 'public/styles/_main';
 
 .calendar-qtip {
@@ -31,7 +31,6 @@ License: EULA
   }
 
 }
-
 .calendar td a {
   display: block;
 }
@@ -57,7 +56,7 @@ footer .menu {
     color: #6e6e6e;
     &:hover {
       text-decoration: underline;
-      
+
     }
   }
 }

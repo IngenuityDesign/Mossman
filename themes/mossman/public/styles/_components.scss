@@ -1,0 +1,77 @@
+.base,
+p,
+ul,
+ol {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+span.legend,
+h1.legend,
+h2.legend,
+h3.legend,
+div.legend,
+label.legend,
+legend {
+  display: inline-block;
+  @include transform(skew(-$degree));
+  color: white;
+  background-color: $red;
+  font-weight: bold;
+  padding: 1px 10px;
+  clear: both;
+  font-size: 16px;
+  line-height: 1.6250em;
+}
+
+
+.button--primary, a.button--primary {
+
+  color: $blue;
+  border-radius: 3px;
+  padding: 9px 13px;
+  font-size: 11px;
+  line-height: 11px;
+  border: 1px solid $grayborder;
+  @include linear-gradient(#fbfbfb, $grayborder, $grayborder);
+}
+
+.button--secondary, a.button--secondary {
+
+  @include linear-gradient(#305d92, #002d62, #002d62);
+
+  color: white;
+  border-radius: 3px;
+  padding: 9px 13px;
+  font-size: 11px;
+  line-height: 11px;
+  border: 1px solid #002d62;
+}
+
+.breadcrumbs {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  & > li {
+    &:before {
+      content: '| ';
+    }
+    &:first-child:before {
+      content: "";
+    }
+    padding-left: 10px;
+    padding-right: 5px;
+    display: inline-block;
+    a {
+
+    }
+  }
+}
+
+hr {
+  color: #e6e6e6;
+  background-color: #e6e6e6;
+  margin: 16px 0;
+  border-color: #e6e6e6;
+  border: 0;
+  border-top: 1px solid #e6e6e6;
+}

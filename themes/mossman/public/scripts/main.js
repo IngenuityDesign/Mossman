@@ -101,4 +101,16 @@ jQuery(function($) {
         },
         target: $(this)
     });
+
+    $('.flexslider').flexslider({
+        startAt: 0,
+        minItems: 3,
+        maxItems: 3,
+        controlsContainer: "",
+
+        startAt: 1,
+
+        prevText: "",           //String: Set the text for the "previous" directionNav item
+        nextText: ""
+    });
 })

@@ -1,0 +1,142 @@
+.flex-direction-nav {
+  li:before {
+    content: none;
+  }
+}
+
+
+.jumbo {
+  @include display(flex);
+  @include flex-direction(column);
+}
+
+.slider-item {
+  width: 100%;
+  position: relative;
+  height: 456px;
+  @include flex(1);
+  border-right: 1px solid $grayborder;
+  border-left: 1px solid $grayborder;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+
+    z-index: -1;
+    background-image: url(public/content/cyclists.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+
+  }
+
+}
+
+
+.jumbo .slider-item {
+  legend {
+    @include transform(skew(0deg));
+    position: absolute;
+    left: 30px;
+  }
+  display: none;
+  &.active {
+    display: block;
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8);
+    width: 100%;
+    height: auto;
+    padding: 24px;
+  }
+  h3, p, h5 {
+    padding-top: 0;
+  }
+
+  h3, h4, h5 {
+    color: $blue;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  h5, p {
+    font-size: 11px;
+    line-height: 14px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+  }
+}
+
+/** Larger Screens - desktops and tablets **/
+@media all and (min-width: 990px) {
+
+  .jumbo {
+    width: 100%;
+    @include transform(skew(-$degree));
+    margin: 0;
+    border-radius: 0px;
+    border: 0px;
+    padding: 0;
+  }
+
+  .jumbo .slides {
+    width: 100%;
+  }
+
+  .flexslider .slides > li {
+    display: block;
+    &:before {
+    }
+  }
+
+  .jumbo .slider-item {
+
+    padding: 0;
+    float: left;
+    height: 391px;
+    width: 33.333333333% !important;
+    margin-right: 0px !important;
+    display: block !important;
+    opacity: 0.3 !important;
+    position: relative;
+
+    .bottom {
+      height: 122px;
+      padding: 0;
+    }
+
+    .content {
+      padding: 13px 5px 13px 36px;
+      margin-right: 0;
+    }
+
+  }
+
+  .jumbo .slider-item.active,
+  .jumbo .slider-item.flex-active-slide {
+    opacity: 1 !important;
+  }
+  .jumbo .slider-item:hover {
+    cursor: pointer;
+  }
+  .jumbo .slider-item .content {
+    @include transform(skew($degree));
+  }
+  .jumbo .slider-item:before {
+    @include transform(skew($degree));
+    width: 200%;
+    height: 200%;
+    top: 0%;
+    left: -20%;
+    background-size: contain;
+  }
+}

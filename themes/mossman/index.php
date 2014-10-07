@@ -1,43 +1,46 @@
 <?php get_header(); ?>
 
 <div class="container">
-    <div class="promote-layer jumbo">
+    <div class="promote-layer jumbo flexslider">
 
-        <div class="slider-item">
-            <legend>Triathlon</legend>
-            <div class="bottom">
-                <div class="content">
-                    <h3>Park City Mossman Triathlon</h3>
-                    <h5>08.04.14 | 6:00a start</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
+        <ul class="slides">
+
+            <li class="slider-item">
+                <legend>Triathlon 1</legend>
+                <div class="bottom">
+                    <div class="content">
+                        <h3>Park City Mossman Triathlon</h3>
+                        <h5>08.04.14 | 6:00a start</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </li>
 
-        <!-- start template -->
-        <div class="slider-item active">
-            <legend>Triathlon</legend>
-            <div class="bottom">
-                <div class="content">
-                    <h3>Park City Mossman Triathlon</h3>
-                    <h5>08.04.14 | 6:00a start</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
+            <!-- start template -->
+            <li class="slider-item">
+                <legend>Triathlon 2</legend>
+                <div class="bottom">
+                    <div class="content">
+                        <h3>Park City Mossman Triathlon</h3>
+                        <h5>08.04.14 | 6:00a start</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- end template -->
+            </li>
+            <!-- end template -->
 
-        <div class="slider-item">
-            <legend>Triathlon</legend>
-            <div class="bottom">
-                <div class="content">
-                    <h3>Park City Mossman Triathlon</h3>
-                    <h5>08.04.14 | 6:00a start</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
+            <li class="slider-item">
+                <legend>Triathlon 3</legend>
+                <div class="bottom">
+                    <div class="content">
+                        <h3>Park City Mossman Triathlon</h3>
+                        <h5>08.04.14 | 6:00a start</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </li>
 
+        </ul> <!-- /slides -->
 
     </div>
 </div>

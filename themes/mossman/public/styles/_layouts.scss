@@ -1,0 +1,138 @@
+main {
+  /* Height of the header */
+  padding: 66px 0px 1px;
+  min-height: 100%;
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/** Larger Screens - desktops and tablets **/
+@media all and (min-width: 990px) {
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  main {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    min-height: initial;
+  }
+
+  body {
+    overflow-y: scroll;
+  }
+
+
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+/* scaffolding */
+
+.row {
+  /* gutter? nah */
+  @include clearfix;
+  @include display(flex);
+  @include flex-direction(column-reverse);
+
+  /*&.flow {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }*/
+}
+
+.pad {
+  padding: 21px;
+}
+
+.column {
+
+  .legend {
+    margin-top: 3px;
+    margin-bottom: 25px;
+  }
+}
+
+.column--thirds {
+  float: none;
+  width: 100%;
+}
+
+
+.second--column {
+  @include order(1);
+}
+
+@media (min-width: 990px) {
+  .row {
+    @include flex-direction(row);
+    @include flex(1);
+  }
+
+  .column {
+
+  }
+
+  .second--column {
+    @include order();
+    @include flex(1);
+    border-left: 1px solid $grayborder;
+    border-right: 1px solid $grayborder;
+  }
+
+  .first--column {
+    @include flex(0 0 365px);
+  }
+
+  .third--column {
+    @include flex(0 0 433px);
+  }
+
+}
+
+.events .row .column--thirds {
+  padding: 3px;
+}
+
+
+
+main .header {
+  .promote-layer {
+    @include display(flex);
+    @include flex-direction(row);
+  }
+  .column--left {
+    background-color: $primary;
+    &, a {color: white;}
+  }
+}
+
+.column--left {
+  @include flex(1);
+}
+.column--right {
+  @include flex(2.423);
+}
+
+.main-container .column--right {
+  border-left: 1px solid $grayborder;
+  margin-left: 4px;
+}
+
+.left-right {
+  @include clearfix;
+  .left, .right {
+    width: 50%;
+    float: left;
+  }
+}
