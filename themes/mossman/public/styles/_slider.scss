@@ -99,7 +99,7 @@
   }
 
   .jumbo .slider-item {
-
+    @include transition (opacity 1.0s ease-in 0s);
     padding: 0;
     float: left;
     height: 391px;
@@ -123,6 +123,7 @@
 
   .jumbo .slider-item.active,
   .jumbo .slider-item.flex-active-slide {
+    @include transition (opacity 1.0s ease-in 0s);
     opacity: 1 !important;
   }
   .jumbo .slider-item:hover {

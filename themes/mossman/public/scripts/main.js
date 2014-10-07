@@ -103,10 +103,14 @@ jQuery(function($) {
     });
 
     $('.flexslider').flexslider({
-        startAt: 0,
-        minItems: 3,
-        maxItems: 3,
+        //minItems: 1,
+        //maxItems: 3,
+
+        //itemMargin: 0,
+        //itemWidth: 400,
+
         controlsContainer: "",
+        controlNav: false,
 
         startAt: 1,
 

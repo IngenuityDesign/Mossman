@@ -2568,6 +2568,9 @@ main .header .column--left {
     display: block; }
 
   .jumbo .slider-item {
+    -webkit-transition: opacity 1s ease-in 0s;
+    -moz-transition: opacity 1s ease-in 0s;
+    transition: opacity 1s ease-in 0s;
     padding: 0;
     float: left;
     height: 391px;
@@ -2585,6 +2588,9 @@ main .header .column--left {
 
   .jumbo .slider-item.active,
   .jumbo .slider-item.flex-active-slide {
+    -webkit-transition: opacity 1s ease-in 0s;
+    -moz-transition: opacity 1s ease-in 0s;
+    transition: opacity 1s ease-in 0s;
     opacity: 1 !important; }
 
   .jumbo .slider-item:hover {
@@ -3035,6 +3041,7 @@ footer .menu {
       content: none; }
   footer .menu li a {
     padding: 0;
+    text-transform: uppercase;
     margin: 0;
     color: #6e6e6e; }
     footer .menu li a:hover {

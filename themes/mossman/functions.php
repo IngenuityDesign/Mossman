@@ -168,7 +168,7 @@ function mossman_make_calendar($month, $year, $events=false) {
                 $class = '';
                   if ($events) {
                       //lets create the string
-                      $keystring = sprintf('%02d.%s.%s', $month, $date, $year);
+                      $keystring = sprintf('%02d.%02d.%s', $month, $date, $year);
                       if (array_key_exists($keystring, $events)) {
                           $the_event = $events[$keystring];
                           //we have an event
@@ -218,16 +218,24 @@ function mossman_get_events() {
     foreach($posts as $post) {
         $id = $post->ID;
         $title = $post->post_title;
+
         $date = get_field( "race_date", $id);
         $time = get_field( "race_time", $id);
         $link = get_permalink( $id );
 
         list($month,$day,$year) = explode('.', $date);
+        $month = intval($month);
+        $day = intval($day);
+        $year = intval($year);
+
         $events[$date] = array(
             'title' => $title,
             'date' => $date,
             'time' => $time,
-            'link' => $link
+            'link' => $link,
+            'month' => $month,
+            'day' => $day,
+            'year' => $year
         );
 
     }
