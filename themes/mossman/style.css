@@ -1773,7 +1773,7 @@ body {
   padding: 0; }
 
 body {
-  position: relative;
+  position: static;
   font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
   font-weight: 300;
   background-color: #fff;
@@ -3046,3 +3046,8 @@ footer .menu {
     color: #6e6e6e; }
     footer .menu li a:hover {
       text-decoration: underline; }
+
+.maps .views .view {
+  display: none; }
+  .maps .views .view:first-child {
+    display: block; }

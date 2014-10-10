@@ -61,10 +61,7 @@ jQuery(function($) {
             style: {classes: 'calendar-qtip'},
             position: {
                 my: 'bottom center',
-                at: 'top center',
-                adjust: {
-                    y: -20
-                }
+                at: 'top center'
             },
             hide: {
                 fixed: true,
@@ -77,29 +74,6 @@ jQuery(function($) {
             target: $(this)
         })
 
-    });
-
-    $('.legend').qtip({ // Grab some elements to apply the tooltip to
-        content: {
-            text: 'haide'
-        },
-        style: {classes: 'calendar-qtip'},
-        position: {
-            my: 'bottom center',
-            at: 'top center',
-            adjust: {
-                y: -20
-            }
-        },
-        hide: {
-            fixed: true,
-            delay: 100,
-            event: 'click mouseleave'
-        },
-        show: {
-            solo: true
-        },
-        target: $(this)
     });
 
     $('.flexslider').flexslider({
@@ -116,5 +90,16 @@ jQuery(function($) {
 
         prevText: "",           //String: Set the text for the "previous" directionNav item
         nextText: ""
+    });
+
+    var navtabs = $('a', '.navtabs');
+    navtabs.click(function() {
+        var shows = $(this).attr('data-shows');
+        var view_class = '.view-' + shows;
+        $('.view', '.views').hide();
+
+        $(view_class).show();
+        navtabs.parent().removeClass('active');
+        $(this).parent().addClass('active');
     });
 })

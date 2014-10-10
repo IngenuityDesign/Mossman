@@ -15,6 +15,7 @@ License: EULA
   min-height: 60px;
   background-color: white;
   border: none;
+
   color: $blue;
   padding: 0px;
   h4 {
@@ -60,5 +61,13 @@ footer .menu {
       text-decoration: underline;
 
     }
+  }
+}
+
+.maps .views .view {
+  display: none;
+
+  &:first-child {
+    display: block;
   }
 }

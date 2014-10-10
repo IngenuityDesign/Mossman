@@ -48,6 +48,7 @@
                     <header>
                         <?php
                         $registration = get_field('race_registration_link');
+
                         if ($registration): ?>
                         <div class="register">
 
@@ -63,8 +64,101 @@
 
                     <hr>
 
+                    <section class="info">
+                        <h3>Key Info</h3>
+                        <?php the_field('event_key_info_content'); ?>
+
+                        <?php if (have_rows('event_key_info_fees')): ?>
+                        <h4>Fees</h4>
+                        <div class="stackable-grid">
+
+                            <?php while ( have_rows('event_key_info_fees') ) : the_row(); ?>
+                                <div class="grid-item grid-item-4">
+                                    <h5><?php the_sub_field('event_key_info_fees_title'); ?></h5>
+                                    <?php echo (get_sub_field('event_key_info_fees_content')); ?>
+                                </div>
+
+                            <?php endwhile; ?>
+
+                        </div>
+
+                        <?php endif; ?>
+                    </section> <!-- info -->
+
+                    <section class="maps">
+                    <?php if (have_rows('event_map_my_run_section')): $i = 0; ?>
+                        <div class="keys">
+                            <ul class="navtabs">
+                        <?php while (have_rows('event_map_my_run_section')): the_row(); ?>
+                            <li<?php if ($i == 0) echo ' class="active"' ?>><a href="javascript: void(0);" data-shows="<?php echo $i; ?>"><?php the_sub_field('event_map_my_run_title'); ?></a></li>
+                            <?php $i++; ?>
+                        <?php endwhile; ?>
+                            </ul>
+                        </div>
+                        <div class="viewport">
+                            <div class="viewport-wrapper">
+                                <ul class="views">
+                                    <?php $i = 0; ?>
+                                    <?php while (have_rows('event_map_my_run_section')): the_row(); ?>
+                                        <li class="view view-<?php echo $i++; ?>">
+                                            <p><?php the_sub_field('event_map_my_run_content'); ?></p>
+                                            <div class="clearfix">
+                                                <img alt="" data-src="holder.js/470x302" /><img class="float-right" alt="" data-src="holder.js/240x150" /><img class="float-right" alt="" data-src="holder.js/240x150" />
+                                            </div>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    </section>
+
+                    <?php if (get_field('event_show_usa_tri_logo')): ?>
+                    <section class="triathlon-logo">
+                        <img src="/wp-content/themes/mossman/public/images/usa.jpg" alt="USA Tri" />
+                    </section>
+                    <?php endif; ?>
+
+                    <hr />
+
+                    <?php
+                    $sponsors = get_field('event_sponsors');
+                    ?>
+
+                    <section class="sponsors">
+                        <h3>Thanks to our sponsors</h3>
+                        <img class="img-responsive" src="/wp-content/themes/mossman/public/images/cheat/sponsors.png" alt="Our Sponsors" title="Our sponsors: <?php echo rtrim(implode(', ', $sponsors), ', '); ?>" />
+
+                    </section>
+
                     <?php the_content(); ?>
 
+                </article>
+                <?php $gallery = get_field('event_gallery'); ?>
+                <article class="gallery">
+                    <?php
+
+                    if ($gallery): ?>
+                        <!-- Place somewhere in the <body> of your page -->
+                        <div class="flexslider gallery">
+                            <ul class="slides">
+                                <?php foreach($gallery as $image): ?>
+                                <li>
+                                    <img src="<?php echo $image['url']; ?>" />
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <div class="thumbnails flexslider">
+                            <ul class="slides">
+                                <?php foreach($gallery as $image): ?>
+                                    <li>
+                                        <img src="<?php echo $image['url']; ?>" />
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
                 </article>
 
             </div>
