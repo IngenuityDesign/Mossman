@@ -18,7 +18,7 @@
                             <ul>
                                 <li><a href="#">Travel</a></li>
                                 <li><a href="#">Results</a></li>
-                                <li><a href="#">Photos</a></li>
+                                <li><a id="nav-photos-show" href="#">Photos</a></li>
                                 <li><a href="#">Volunteer</a></li>
                             </ul>
                         </div>
@@ -42,7 +42,7 @@
                 <?php get_sidebar(); ?>
             </div>
             <div class="column--right main-content event">
-                <article class="pad">
+                <article class="pad key-info panel">
                     <?php the_post(); ?>
 
                     <header>
@@ -135,7 +135,7 @@
 
                 </article>
                 <?php $gallery = get_field('event_gallery'); ?>
-                <article class="gallery pad">
+                <article class="gallery pad panel">
                     <section>
                         <h3>Event Photos</h3>
                         <?php if ($gallery): ?>

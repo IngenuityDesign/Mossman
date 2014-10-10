@@ -120,4 +120,17 @@ jQuery(function($) {
         navtabs.parent().removeClass('active');
         $(this).parent().addClass('active');
     });
+
+    if ($('#nav-photos-show')) {
+        $('#nav-photos-show').click(function() {
+            var articles = $('article', '.main-container');
+            articles.show();
+            articles.not('.gallery').hide();
+
+        });
+    }
+
+    window.setTimeout(function() {
+        $('article.gallery').hide();
+    }, 100);
 })
