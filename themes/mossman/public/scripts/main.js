@@ -76,20 +76,38 @@ jQuery(function($) {
 
     });
 
-    $('.flexslider').flexslider({
-        //minItems: 1,
-        //maxItems: 3,
+    var sliders = $('.flexslider');
+    sliders.each(function() {
+       if ($(this).is('.gallery')) {
 
-        //itemMargin: 0,
-        //itemWidth: 400,
+           $(this).flexslider({
+               startAt: 1,
 
-        controlsContainer: "",
-        controlNav: false,
+               prevText: "",           //String: Set the text for the "previous" directionNav item
+               nextText: "",
 
-        startAt: 1,
+               animation: "slide",
+               controlNav: "thumbnails"
+           });
 
-        prevText: "",           //String: Set the text for the "previous" directionNav item
-        nextText: ""
+       } else {
+
+           $(this).flexslider({
+               //minItems: 1,
+               //maxItems: 3,
+
+               //itemMargin: 0,
+               //itemWidth: 400,
+
+               controlsContainer: "",
+               controlNav: false,
+
+               startAt: 1,
+
+               prevText: "",           //String: Set the text for the "previous" directionNav item
+               nextText: ""
+           });
+       }
     });
 
     var navtabs = $('a', '.navtabs');

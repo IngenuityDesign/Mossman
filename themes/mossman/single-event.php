@@ -135,30 +135,23 @@
 
                 </article>
                 <?php $gallery = get_field('event_gallery'); ?>
-                <article class="gallery">
-                    <?php
-
-                    if ($gallery): ?>
-                        <!-- Place somewhere in the <body> of your page -->
-                        <div class="flexslider gallery">
-                            <ul class="slides">
-                                <?php foreach($gallery as $image): ?>
-                                <li>
-                                    <img src="<?php echo $image['url']; ?>" />
-                                </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                        <div class="thumbnails flexslider">
-                            <ul class="slides">
-                                <?php foreach($gallery as $image): ?>
-                                    <li>
+                <article class="gallery pad">
+                    <section>
+                        <h3>Event Photos</h3>
+                        <?php if ($gallery): ?>
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div class="flexslider gallery" style="margin-top: 15px;">
+                                <ul class="slides">
+                                    <?php foreach($gallery as $image): ?>
+                                    <li data-thumb="<?php echo $image['url']; ?>">
                                         <img src="<?php echo $image['url']; ?>" />
                                     </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+
+                        <?php endif; ?>
+                    </section>
                 </article>
 
             </div>
