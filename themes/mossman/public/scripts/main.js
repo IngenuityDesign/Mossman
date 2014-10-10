@@ -132,5 +132,5 @@ jQuery(function($) {
 
     window.setTimeout(function() {
         $('article.gallery').hide();
-    }, 100);
+    }, 1000);
 })

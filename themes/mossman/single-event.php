@@ -42,8 +42,8 @@
                 <?php get_sidebar(); ?>
             </div>
             <div class="column--right main-content event">
+                <?php the_post(); ?>
                 <article class="pad key-info panel">
-                    <?php the_post(); ?>
 
                     <header>
                         <?php
@@ -136,6 +136,26 @@
                 </article>
                 <?php $gallery = get_field('event_gallery'); ?>
                 <article class="gallery pad panel">
+
+                    <header>
+                        <?php
+                        $registration = get_field('race_registration_link');
+
+                        if ($registration): ?>
+                            <div class="register">
+
+                                <a href="<?php echo $registration ?>" class="button--secondary button">Register</a>
+                            </div>
+                        <?php endif; ?>
+
+                        <h2><?php the_title(); ?></h2>
+                        <h4><?php printf("%s | %s start", get_field( "race_date" ), get_field( "race_time" )); ?></h4>
+                        <h4><?php echo get_field("race_location"); ?></h4>
+
+                    </header>
+
+                    <hr>
+
                     <section>
                         <h3>Event Photos</h3>
                         <?php if ($gallery): ?>
