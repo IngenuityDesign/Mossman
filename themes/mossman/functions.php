@@ -24,7 +24,7 @@ function mossman_add_js() {
 
     wp_enqueue_script( 'modernizr', MOSSMAN_THEME_URI . '/public/scripts/modernizr.min.js', array(), MOSSMAN_THEME_VERSION );
     wp_enqueue_script( 'respond', MOSSMAN_THEME_URI . '/public/scripts/respond.min.js', array(), MOSSMAN_THEME_VERSION );
-
+    wp_enqueue_script( 'imagesloaded', MOSSMAN_THEME_URI . '/public/scripts/imagesloaded.pkg.min.js', array(), MOSSMAN_THEME_VERSION, true);
     wp_enqueue_script( 'qtip', MOSSMAN_THEME_URI . '/public/scripts/jquery.qtip.min.js', array( 'jquery' ), MOSSMAN_THEME_VERSION, true);
     wp_enqueue_script( 'holder', MOSSMAN_THEME_URI . '/public/scripts/holder.js', array(), MOSSMAN_THEME_VERSION, true);
     wp_enqueue_script( 'main-js', MOSSMAN_THEME_URI . '/public/scripts/main.js', array( 'jquery' ), MOSSMAN_THEME_VERSION, true);

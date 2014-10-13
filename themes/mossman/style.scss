@@ -19,7 +19,7 @@ License: EULA
   color: $blue;
   padding: 0px;
   h4 {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
     margin:0;
@@ -31,7 +31,17 @@ License: EULA
     font-size: 10px;
   }
 
+  .qtip-tip,
+  .qtip-tip .qtip-vml,
+  .qtip-tip canvas {
+    color: white;
+    background-color: white;
+  }
+  border-color: white;
+
 }
+
+
 .calendar td a {
   display: block;
 }
@@ -71,4 +81,3 @@ footer .menu {
     display: block;
   }
 }
-

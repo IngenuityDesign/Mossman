@@ -133,4 +133,4 @@ jQuery(function($) {
     window.setTimeout(function() {
         $('article.gallery').hide();
     }, 1000);
-})
+});
