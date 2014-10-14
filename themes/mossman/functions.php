@@ -87,6 +87,7 @@ function mossman_register_event_type() {
         'not_found' => "No events found",
         'not_found_in_trash' => "No events found in the trash"
     );
+
     $event = array(
         'public' => true,
         'labels' => $event_labels,
@@ -98,8 +99,33 @@ function mossman_register_event_type() {
         'capability_type'    => 'post',
         'has_archive'        => true,
         'heirarchal'         => false,
-        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt')
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'taxonomies'         => array('event_type')
     );
+    $cat_labels = array(
+        'name'              => _x( 'Event Types', 'Event Types' ),
+        'singular_name'     => _x( 'Event Type', 'Event Type' ),
+        'search_items'      => __( 'Search Event Types' ),
+        'all_items'         => __( 'All Event Types' ),
+        'parent_item'       => __( 'Parent Event Type' ),
+        'parent_item_colon' => __( 'Parent Event Type:' ),
+        'edit_item'         => __( 'Edit Event Type' ),
+        'update_item'       => __( 'Update Event Type' ),
+        'add_new_item'      => __( 'Add New Event Type' ),
+        'new_item_name'     => __( 'New Event Type Name' ),
+        'menu_name'         => __( 'Event Type' ),
+    );
+
+    $cat = array(
+        'hierarchical'      => true,
+        'labels'            => $cat_labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'event_type' ),
+    );
+
+    register_taxonomy( 'event_type', 'post', $cat);
     register_post_type( 'event', $event  );
 }
 add_action( 'init', 'mossman_register_event_type' );

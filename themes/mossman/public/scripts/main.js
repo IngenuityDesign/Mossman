@@ -130,6 +130,42 @@ jQuery(function($) {
         });
     }
 
+    var raceDayLink = $('#nav-race-day');
+    var rulesSafetyLink = $('#nav-rules-safety');
+    var keyInfoLink = $('#nav-key-info');
+    var travelLink = $('#nav-travel');
+    var panels = $('section.subsection');
+
+    if (raceDayLink) {
+        raceDayLink.click(function() {
+            panels.hide();
+            $('.event_race_day').show();
+        });
+    }
+
+    if (rulesSafetyLink) {
+        rulesSafetyLink.click(function() {
+            panels.hide();
+            $('.event_rules_safety').show();
+        });
+    }
+
+    if (keyInfoLink) {
+        keyInfoLink.click(function() {
+            panels.hide();
+            $('.info').show();
+        });
+    }
+
+    if (travelLink) {
+        travelLink.click(function() {
+            panels.hide();
+            $('.event_travel').show();
+        });
+    }
+
+    panels.not('.info').hide();
+
     window.setTimeout(function() {
         $('article.gallery').hide();
     }, 1000);

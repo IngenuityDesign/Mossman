@@ -4,41 +4,32 @@
     <div class="promote-layer jumbo flexslider">
 
         <ul class="slides">
-
-            <li class="slider-item">
-                <legend>Triathlon 1</legend>
-                <div class="bottom">
-                    <div class="content">
-                        <h3>Park City Mossman Triathlon</h3>
-                        <h5>08.04.14 | 6:00a start</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- start template -->
-            <li class="slider-item">
-                <legend>Triathlon 2</legend>
-                <div class="bottom">
-                    <div class="content">
-                        <h3>Park City Mossman Triathlon</h3>
-                        <h5>08.04.14 | 6:00a start</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
-                    </div>
-                </div>
-            </li>
-            <!-- end template -->
-
-            <li class="slider-item">
-                <legend>Triathlon 3</legend>
-                <div class="bottom">
-                    <div class="content">
-                        <h3>Park City Mossman Triathlon</h3>
-                        <h5>08.04.14 | 6:00a start</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi eu leo consequat, in aliquam nisl molestie. Sed pulvinar orci hendrerit ipsum molestie, ac ultricies ipsum tempus. Donec ac eros ac mauris imperdiet ictum.</p>
-                    </div>
-                </div>
-            </li>
+            <?php
+            $types = array('triathlons','runs','swims');
+            $args = array(
+                'posts_per_page'   => 1,
+                'event_type'       => 'triathlons',
+                'orderby'          => 'post_date',
+                'post_type'        => 'event',
+                'post_status'      => 'publish',
+                'suppress_filters' => true );
+            foreach ($types as $type) {
+                $args['event_type'] = $type;
+                $posts = get_posts($args);
+                if ($posts[0]): $post = $posts[0]; ?>
+                    <li class="slider-item">
+                        <legend><?php echo rtrim(ucwords($type), 's'); ?></legend>
+                        <div class="bottom">
+                            <div class="content">
+                                <h3><?php echo $post->post_title; ?></h3>
+                                <h5>08.04.14 | 6:00a start</h5>
+                                <p><?php echo $post->post_excerpt ? $post->post_excerpt : $post->post_content; ?></p>
+                            </div>
+                        </div>
+                    </li>
+                <?php endif;
+            }
+            ?>
 
         </ul> <!-- /slides -->
 

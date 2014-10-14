@@ -8,18 +8,18 @@
                     <div class="left-right">
                         <div class="left">
                             <ul>
-                                <li><a href="#">Key Info</a></li>
-                                <li><a href="#">Register</a></li>
-                                <li><a href="#">Race Day</a></li>
-                                <li><a href="#">Rules &amp; Safety</a></li>
+                                <li><a id="nav-key-info" href="javascript:void(0);">Key Info</a></li>
+                                <li><a target="_blank" href="javascript:void(0);">Register</a></li>
+                                <li><a id="nav-race-day" href="javascript:void(0);">Race Day</a></li>
+                                <li><a id="nav-rules-safety" href="javascript:void(0);">Rules &amp; Safety</a></li>
                             </ul>
                         </div>
                         <div class="right">
                             <ul>
-                                <li><a href="#">Travel</a></li>
-                                <li><a href="#">Results</a></li>
-                                <li><a id="nav-photos-show" href="#">Photos</a></li>
-                                <li><a href="#">Volunteer</a></li>
+                                <li><a id="nav-travel" href="javascript:void(0);">Travel</a></li>
+                                <li><a target="_blank" href="<?php the_field('event_results_link'); ?>">Results</a></li>
+                                <li><a id="nav-photos-show" href="javascript:void(0);">Photos</a></li>
+                                <li><a target="_blank" href="<?php the_field('event_volunteer_link'); ?>">Volunteer</a></li>
                             </ul>
                         </div>
                     </div>
@@ -64,7 +64,8 @@
 
                     <hr>
 
-                    <section class="info">
+                    <section class="subsection info">
+
                         <h3>Key Info</h3>
                         <?php the_field('event_key_info_content'); ?>
 
@@ -82,8 +83,24 @@
 
                         </div>
 
+                        <?php the_field('event_key_info_under_fees'); ?>
+
                         <?php endif; ?>
                     </section> <!-- info -->
+
+                    <?php
+                        $fields = array('event_race_day', 'event_rules_safety', 'event_travel');
+                        $classes = array('race-day', 'rules-safety', 'travel');
+                        $titles = array('Race Day', 'Rules &amp; Safety', 'Travel');
+                        foreach($fields as $k=>$name):
+                            if ($x = get_field($name)): ?>
+                            <section class="subsection <?php echo $name; ?> <?php echo $classes[$k] ? $classes[$k] : ''?>">
+                            <h3><?php echo $titles[$k]; ?></h3>
+                            <?php echo $x; ?>
+                            </section>
+                            <?php endif;
+                        endforeach;
+                    ?>
 
                     <section class="maps">
                     <?php if (have_rows('event_map_my_run_section')): $i = 0; ?>
@@ -130,8 +147,6 @@
                         <img class="img-responsive" src="/wp-content/themes/mossman/public/images/cheat/sponsors.png" alt="Our Sponsors" title="Our sponsors: <?php echo rtrim(implode(', ', $sponsors), ', '); ?>" />
 
                     </section>
-
-                    <?php the_content(); ?>
 
                 </article>
                 <?php $gallery = get_field('event_gallery'); ?>
