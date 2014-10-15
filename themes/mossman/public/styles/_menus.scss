@@ -229,6 +229,7 @@ ul.navtabs li a:active {
     .sub-menu {
       position: absolute;
       top: 35px;
+      right: 0px;
       margin-left: 3px;
       width: 100%;
       @include transform(skew($degree));

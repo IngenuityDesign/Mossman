@@ -2076,6 +2076,18 @@ legend {
   clear: both;
   font-size: 16px;
   line-height: 1.6250em; }
+  span.legend span,
+  h1.legend span,
+  h2.legend span,
+  h3.legend span,
+  div.legend span,
+  label.legend span,
+  legend span {
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+    -ms-transform: skew(10deg);
+    -o-transform: skew(10deg);
+    transform: skew(10deg); }
 
 .button--primary, a.button--primary {
   color: #002d62;
@@ -2646,6 +2658,7 @@ ul.navtabs li a:active {
     .navdrawer-container > ul .sub-menu {
       position: absolute;
       top: 35px;
+      right: 0px;
       margin-left: 3px;
       width: 100%;
       -webkit-transform: skew(10deg);
@@ -2702,9 +2715,9 @@ footer {
   text-align: center;
   font-size: 11px;
   color: #6e6e6e;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  -webkit-box-shadow: 0px -5px 4px -3px rgba(50, 50, 50, 0.45);
+  -moz-box-shadow: 0px -5px 4px -3px rgba(50, 50, 50, 0.45);
+  box-shadow: 0px -5px 4px -3px rgba(50, 50, 50, 0.45);
   padding-top: 18px;
   padding-bottom: 18px; }
 
@@ -2844,7 +2857,7 @@ ul.navtabs a {
   color: #002d62;
   padding: 0px;
   border-color: white;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.45);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.25);
   -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.25);
   box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.25); }
   .calendar-qtip h4 {
@@ -2891,3 +2904,16 @@ footer .menu {
   display: none; }
   .maps .views .view:first-child {
     display: block; }
+
+.sub-menu {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2; }
+  .sub-menu > li {
+    text-align: left; }
+    .sub-menu > li a {
+      font-size: 10px;
+      overflow: hidden; }
+
+.navdrawer-container > ul .sub-menu > li a {
+  font-size: 12px; }

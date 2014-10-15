@@ -85,3 +85,18 @@ footer .menu {
     display: block;
   }
 }
+
+.sub-menu {
+  @include column-count(2);
+  & > li {
+    text-align: left;
+    a {
+      font-size:10px;
+      overflow: hidden;
+    }
+  }
+}
+.navdrawer-container > ul .sub-menu > li a {
+  font-size: 12px;
+}
+

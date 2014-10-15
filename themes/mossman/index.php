@@ -18,14 +18,16 @@
                 $posts = get_posts($args);
                 if ($posts[0]): $post = $posts[0]; ?>
                     <li class="slider-item">
+                        <a href="<?php the_permalink($post->ID); ?>">
                         <legend><?php echo rtrim(ucwords($type), 's'); ?></legend>
                         <div class="bottom">
                             <div class="content">
                                 <h3><?php echo $post->post_title; ?></h3>
-                                <h5>08.04.14 | 6:00a start</h5>
+                                <h5><?php printf("%s | %s start", get_field( "race_date", $post->ID ), get_field( "race_time", $post->ID )) ?></h5>
                                 <p><?php echo $post->post_excerpt ? $post->post_excerpt : $post->post_content; ?></p>
                             </div>
                         </div>
+                        </a>
                     </li>
                 <?php endif;
             }
@@ -46,7 +48,7 @@
     <div class="column--thirds second--column column main-content events">
 
         <article class="pad">
-            <div><span class="legend">Events</span></div>
+            <div><h2 class="legend"><span>Events</span></h2></div>
                 <!-- we could use google scaffolding here but i dont know if theres much of a reason -->
 
                 <div class="row flow">
