@@ -22,9 +22,11 @@ legend {
   clear: both;
   font-size: 16px;
   line-height: 1.6250em;
+  text-transform: uppercase;
 
   span {
     @include transform(skew($degree));
+    display:inline-block;
   }
 }
 

@@ -17,6 +17,9 @@ License: EULA
   border: none;
 
   color: $blue;
+  a, a:link, a:visited {
+    color: $blue;
+  }
   padding: 0px;
   h4 {
     font-size: 11px;
@@ -100,3 +103,8 @@ footer .menu {
   font-size: 12px;
 }
 
+.promote-layer.jumbo.flexslider {
+  a, a:link, a:visited {
+    color: $blue;
+  }
+}

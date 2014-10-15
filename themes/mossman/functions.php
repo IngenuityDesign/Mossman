@@ -57,16 +57,16 @@ function mossman_register_sidebars() {
         'id' => 'left_sidebar',
         'before_widget' => '<aside id="%1$s" class="widget widget_%1$s pad">',
         'after_widget' => '</aside>',
-        'before_title' => '<div class="widget-title"><span class="legend">',
-        'after_title' => '</span></div>'));
+        'before_title' => '<h3 class="widget-title legend"><span>',
+        'after_title' => '</span></h3>'));
 
     register_sidebar(array(
         'name' => "Right Sidebar",
         'id' => 'right_sidebar',
         'before_widget' => '<aside id="%1$s" class="widget widget_%1$s pad">',
         'after_widget' => '</aside>',
-        'before_title' => '<div class="widget-title"><span class="legend">',
-        'after_title' => '</span></div>'));
+        'before_title' => '<h3 class="legend widget-title"><span>',
+        'after_title' => '</span></h3>'));
 }
 
 /** [Custom Post Types] **/

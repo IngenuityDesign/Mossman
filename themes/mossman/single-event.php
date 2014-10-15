@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+    <?php $registration = get_field('race_registration_link'); ?>
     <div class="header">
         <div class="container">
             <div class="promote-layer">
@@ -9,7 +10,7 @@
                         <div class="left">
                             <ul>
                                 <li><a id="nav-key-info" href="javascript:void(0);">Key Info</a></li>
-                                <li><a target="_blank" href="javascript:void(0);">Register</a></li>
+                                <li><a target="_blank" href="<?php echo $registration ? $registration : 'javascript:void(0);'; ?>">Register</a></li>
                                 <li><a id="nav-race-day" href="javascript:void(0);">Race Day</a></li>
                                 <li><a id="nav-rules-safety" href="javascript:void(0);">Rules &amp; Safety</a></li>
                             </ul>
@@ -19,7 +20,7 @@
                                 <li><a id="nav-travel" href="javascript:void(0);">Travel</a></li>
                                 <li><a target="_blank" href="<?php the_field('event_results_link'); ?>">Results</a></li>
                                 <li><a id="nav-photos-show" href="javascript:void(0);">Photos</a></li>
-                                <li><a target="_blank" href="<?php the_field('event_volunteer_link'); ?>">Volunteer</a></li>
+                                <li><a <?php if ($x = get_field('event_volunteer_link') && !stristr($x, 'mailto')) echo 'target="_blank" '; ?>href="<?php the_field('event_volunteer_link'); ?>">Volunteer</a></li>
                             </ul>
                         </div>
                     </div>
@@ -47,7 +48,7 @@
 
                     <header>
                         <?php
-                        $registration = get_field('race_registration_link');
+
 
                         if ($registration): ?>
                         <div class="register">
@@ -86,6 +87,36 @@
                         <?php the_field('event_key_info_under_fees'); ?>
 
                         <?php endif; ?>
+
+                        <section class="maps">
+                            <?php if (have_rows('event_map_my_run_section')): $i = 0; ?>
+                                <div class="keys">
+                                    <ul class="navtabs">
+                                        <?php while (have_rows('event_map_my_run_section')): the_row(); ?>
+                                            <li<?php if ($i == 0) echo ' class="active"' ?>><a href="javascript: void(0);" data-shows="<?php echo $i; ?>"><?php the_sub_field('event_map_my_run_title'); ?></a></li>
+                                            <?php $i++; ?>
+                                        <?php endwhile; ?>
+                                    </ul>
+                                </div>
+                                <div class="viewport">
+                                    <div class="viewport-wrapper">
+                                        <ul class="views">
+                                            <?php $i = 0; ?>
+                                            <?php while (have_rows('event_map_my_run_section')): the_row(); ?>
+                                                <li class="view view-<?php echo $i++; ?>">
+                                                    <p><?php the_sub_field('event_map_my_run_content'); ?></p>
+                                                    <div class="clearfix">
+                                                        <img alt="" data-src="holder.js/470x302" /><img class="float-right" alt="" data-src="holder.js/240x150" /><img class="float-right" alt="" data-src="holder.js/240x150" />
+                                                    </div>
+                                                </li>
+                                            <?php endwhile; ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </section>
+                        <!-- .maps -->
+
                     </section> <!-- info -->
 
                     <?php
@@ -101,34 +132,6 @@
                             <?php endif;
                         endforeach;
                     ?>
-
-                    <section class="maps">
-                    <?php if (have_rows('event_map_my_run_section')): $i = 0; ?>
-                        <div class="keys">
-                            <ul class="navtabs">
-                        <?php while (have_rows('event_map_my_run_section')): the_row(); ?>
-                            <li<?php if ($i == 0) echo ' class="active"' ?>><a href="javascript: void(0);" data-shows="<?php echo $i; ?>"><?php the_sub_field('event_map_my_run_title'); ?></a></li>
-                            <?php $i++; ?>
-                        <?php endwhile; ?>
-                            </ul>
-                        </div>
-                        <div class="viewport">
-                            <div class="viewport-wrapper">
-                                <ul class="views">
-                                    <?php $i = 0; ?>
-                                    <?php while (have_rows('event_map_my_run_section')): the_row(); ?>
-                                        <li class="view view-<?php echo $i++; ?>">
-                                            <p><?php the_sub_field('event_map_my_run_content'); ?></p>
-                                            <div class="clearfix">
-                                                <img alt="" data-src="holder.js/470x302" /><img class="float-right" alt="" data-src="holder.js/240x150" /><img class="float-right" alt="" data-src="holder.js/240x150" />
-                                            </div>
-                                        </li>
-                                    <?php endwhile; ?>
-                                </ul>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    </section>
 
                     <?php if (get_field('event_show_usa_tri_logo')): ?>
                     <section class="triathlon-logo">

@@ -52,7 +52,7 @@ jQuery(function($) {
 
     $.each($('.calendar td.active a'), function() {
 
-        var content = '<h4>' + $(this).attr('title') + '</h4><p>' + $(this).attr('data-desc') + '</p>';
+        var content = '<h4><a href=" ' + $(this).attr('href') + '">' + $(this).attr('title') + '</a></h4><p>' + $(this).attr('data-desc') + '</p>';
 
         $(this).qtip({ // Grab some elements to apply the tooltip to
             content: {
