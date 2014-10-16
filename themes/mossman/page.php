@@ -3,24 +3,20 @@
         <div class="container">
             <div class="promote-layer">
 
-                <div class="column--left sidenav">
+                <div class="column--left sidenav page--sidenav">
 
                     <div class="left-right">
                         <div class="left">
-                            <ul>
-                                <li><a href="#">Key Info</a></li>
-                                <li><a href="#">Register</a></li>
-                                <li><a href="#">Race Day</a></li>
-                                <li><a href="#">Rules &amp; Safety</a></li>
-                            </ul>
+                            <?php wp_nav_menu( array(
+                                'theme_location' => 'page_left',
+                                'container' => ''
+                            ) ); ?>
                         </div>
                         <div class="right">
-                            <ul>
-                                <li><a href="#">Travel</a></li>
-                                <li><a href="#">Results</a></li>
-                                <li><a href="#">Photos</a></li>
-                                <li><a href="#">Volunteer</a></li>
-                            </ul>
+                            <?php wp_nav_menu( array(
+                                'theme_location' => 'page_right',
+                                'container' => ''
+                            ) ); ?>
                         </div>
                     </div>
 

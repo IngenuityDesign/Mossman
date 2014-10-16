@@ -40,8 +40,8 @@ function mossman_add_navigation_menus() {
     register_nav_menus( array(
         'top' => "Top navigation",
         'footer' => "Footer navigation",
-        'event' => "Event contextual navigation",
-        'page'  => "Page contextual navigation"
+        'page_left' => "Page left navigation",
+        'page_right'  => "Page right navigation"
     ) ); //menu used in primary
 }
 

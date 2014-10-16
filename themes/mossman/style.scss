@@ -53,6 +53,11 @@ License: EULA
   display: block;
 }
 
+footer {
+  z-index:3;
+  position:relative;
+}
+
 footer .menu {
   padding: 0;
   margin: 0;
@@ -106,5 +111,20 @@ footer .menu {
 .promote-layer.jumbo.flexslider {
   a, a:link, a:visited {
     color: $blue;
+  }
+}
+
+.sidenav a {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.page--sidenav {
+  .left {
+    width: 30%;
+  }
+  .right {
+    width: 70%;
   }
 }
