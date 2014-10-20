@@ -1,3 +1,7 @@
+/*
+ * Fawnts
+ */
+
 /* ==========================================================================
    Fawnts
    ========================================================================== */
@@ -6,6 +10,14 @@
   font-family: 'OldFace';
   font-style: normal;
   font-weight: 300;
+  src: url(public/fonts/ag-old-face-regular.eot);
+  src: local('AGOldFace Regular'), local('AGOldFace-Regular'), local('AGOldFace'), url(public/fonts/ag-old-face-regular.eot) format('embedded-opentype'), url(public/fonts/ag-old-face-regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'OldFace';
+  font-style: normal;
+  font-weight: 400;
   src: url(public/fonts/ag-old-face-regular.eot);
   src: local('AGOldFace Regular'), local('AGOldFace-Regular'), local('AGOldFace'), url(public/fonts/ag-old-face-regular.eot) format('embedded-opentype'), url(public/fonts/ag-old-face-regular.woff) format('woff');
 }

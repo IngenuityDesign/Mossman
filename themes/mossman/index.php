@@ -19,7 +19,7 @@
                 if ($posts[0]): $post = $posts[0]; ?>
                     <li class="slider-item">
                         <a href="<?php the_permalink($post->ID); ?>">
-                        <legend><?php echo rtrim(ucwords($type), 's'); ?></legend>
+                        <legend><span><?php echo rtrim(ucwords($type), 's'); ?></span></legend>
                         <div class="bottom">
                             <div class="content">
                                 <h3><?php echo $post->post_title; ?></h3>

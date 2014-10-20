@@ -9,18 +9,18 @@
                     <div class="left-right">
                         <div class="left">
                             <ul>
-                                <li><a id="nav-key-info" href="javascript:void(0);">Key Info</a></li>
+                                <li><a id="nav-key-info" href="#keyinfo">Key Info</a></li>
                                 <li><a target="_blank" href="<?php echo $registration ? $registration : 'javascript:void(0);'; ?>">Register</a></li>
-                                <li><a id="nav-race-day" href="javascript:void(0);">Race Day</a></li>
-                                <li><a id="nav-rules-safety" href="javascript:void(0);">Rules &amp; Safety</a></li>
+                                <li><a id="nav-race-day" href="#raceday">Race Day</a></li>
+                                <li><a id="nav-rules-safety" href="#rules">Rules &amp; Safety</a></li>
                             </ul>
                         </div>
                         <div class="right">
                             <ul>
-                                <li><a id="nav-travel" href="javascript:void(0);">Travel</a></li>
+                                <li><a id="nav-travel" href="#travel">Travel</a></li>
                                 <li><a target="_blank" href="<?php the_field('event_results_link'); ?>">Results</a></li>
-                                <li><a id="nav-photos-show" href="javascript:void(0);">Photos</a></li>
-                                <li><a <?php if ($x = get_field('event_volunteer_link') && !stristr($x, 'mailto')) echo 'target="_blank" '; ?>href="<?php the_field('event_volunteer_link'); ?>">Volunteer</a></li>
+                                <li><a id="nav-photos-show" href="#photos">Photos</a></li>
+                                <li><a <?php $x = get_field('event_volunteer_link'); if ($x && !stristr($x, 'mailto')) echo 'target="_blank" '; ?>href="<?php the_field('event_volunteer_link'); ?>">Volunteer</a></li>
                             </ul>
                         </div>
                     </div>

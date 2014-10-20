@@ -23,7 +23,11 @@
                 </div>
 
                 <div class="column--right image">
-                    <img src="<?php print MOSSMAN_THEME_URI ?>/public/images/headers/triathlon.png" alt="">
+                    <img src="<?php if (!get_field('custom_header')) {
+                        print MOSSMAN_THEME_URI . "/public/images/headers/triathlon.png";
+                    } else {
+                        the_field('custom_header');
+                    } ?>" alt="">
                 </div>
 
 

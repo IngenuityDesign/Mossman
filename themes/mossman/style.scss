@@ -108,6 +108,15 @@ footer .menu {
   font-size: 12px;
 }
 
+ul .sub-menu > li {
+  -webkit-column-break-inside:avoid;
+  -moz-column-break-inside:avoid;
+  -o-column-break-inside:avoid;
+  -ms-column-break-inside:avoid;
+  column-break-inside:avoid;
+}
+
+
 .promote-layer.jumbo.flexslider {
   a, a:link, a:visited {
     color: $blue;
@@ -120,11 +129,41 @@ footer .menu {
   font-weight: 200;
 }
 
+.sidenav .current_page_item a {
+  font-weight: bold;
+}
+
 .page--sidenav {
   .left {
     width: 30%;
   }
   .right {
     width: 70%;
+  }
+}
+
+.navdrawer-container .sub-menu{
+  position: relative;
+  &:after {
+    position: absolute;
+    height: 1px;
+    background-color: $primary;
+    top: 5px;
+    width: 100%;
+    left: 0px;
+    padding: 0;
+    margin: 0;
+    content: ' ';
+  }
+  li {
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: #b0001c;
+    padding: 0;
+    border-bottom: 0px;
+    &:nth-child(odd):last-child {
+      border-bottom: 1px solid #b0001c;
+
+    }
   }
 }

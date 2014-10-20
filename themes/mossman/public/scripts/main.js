@@ -121,13 +121,15 @@ jQuery(function($) {
         $(this).parent().addClass('active');
     });
 
-    if ($('#nav-photos-show')) {
-        $('#nav-photos-show').click(function() {
-            var articles = $('article', '.main-container');
-            articles.show();
-            articles.not('.gallery').hide();
+    var showPhotos = function() {
+        var articles = $('article', '.main-container');
+        articles.show();
+        articles.not('.gallery').hide();
 
-        });
+    };
+
+    if ($('#nav-photos-show')) {
+        $('#nav-photos-show').click(showPhotos);
     }
 
     var raceDayLink = $('#nav-race-day');
@@ -136,35 +138,77 @@ jQuery(function($) {
     var travelLink = $('#nav-travel');
     var panels = $('section.subsection');
 
-    if (raceDayLink) {
-        raceDayLink.click(function() {
-            panels.hide();
-            $('.event_race_day').show();
-        });
+    var defaultClick = function(e) {
+        panels.hide();
+        if (e.prop('tagName')) {
+            $('.current_page_item').removeClass('current_page_item');
+            e.parent().addClass('current_page_item');
+        }
+
     }
+
+    var showRaceday = function() {
+        defaultClick($(this));
+        $('.event_race_day').show();
+    };
+
+    if (raceDayLink) {
+        raceDayLink.click(showRaceday);
+    }
+
+    var showRules = function() {
+        defaultClick($(this));
+        $('.event_rules_safety').show();
+    };
 
     if (rulesSafetyLink) {
-        rulesSafetyLink.click(function() {
-            panels.hide();
-            $('.event_rules_safety').show();
-        });
+        rulesSafetyLink.click(showRules);
     }
+
+    var showKeyinfo = function() {
+        defaultClick($(this));
+        $('.info').show();
+    };
 
     if (keyInfoLink) {
-        keyInfoLink.click(function() {
-            panels.hide();
-            $('.info').show();
-        });
+        keyInfoLink.click(showKeyinfo);
     }
 
+    var showTravel = function() {
+        defaultClick($(this));
+        $('.event_travel').show();
+    };
+
     if (travelLink) {
-        travelLink.click(function() {
-            panels.hide();
-            $('.event_travel').show();
-        });
+        travelLink.click(showTravel);
     }
 
     panels.not('.info').hide();
+
+    //check if there is a hash
+    var hash = document.location.hash || false;
+    if (hash) {
+        switch (hash) {
+            case '#raceday':
+                raceDayLink.parent().addClass('current_page_item');
+                showRaceday();
+                break;
+            case '#keyinfo':
+                keyInfoLink.parent().addClass('current_page_item');
+                showKeyinfo();
+                break;
+            case '#rules':
+                rulesSafetyLink.parent().addClass('current_page_item');
+                showRules();
+                break;
+            case '#travel':
+                travelLink.parent().addClass('current_page_item');
+                showTravel();
+                break;
+            case '#photos':
+                showPhotos();
+        }
+    }
 
     window.setTimeout(function() {
         $('article.gallery').hide();
