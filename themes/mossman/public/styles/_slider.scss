@@ -66,6 +66,9 @@
 
   h3 {
     font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+
   }
 
   h5, p {
@@ -73,6 +76,9 @@
     line-height: 14px;
     margin-top: 5px;
     margin-bottom: 8px;
+  }
+  p {
+    color: #6e6e6e !important;
   }
 }
 

@@ -47,7 +47,7 @@
                     <?php the_post(); ?>
 
                     <header>
-                        <div><span class="legend"><?php the_title(); ?></span></div>
+                        <div><h2 class="legend"><span><?php the_title(); ?></span></h2></div>
                     </header>
 
                     <?php the_content(); ?>

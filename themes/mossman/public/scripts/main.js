@@ -193,10 +193,6 @@ jQuery(function($) {
                 raceDayLink.parent().addClass('current_page_item');
                 showRaceday();
                 break;
-            case '#keyinfo':
-                keyInfoLink.parent().addClass('current_page_item');
-                showKeyinfo();
-                break;
             case '#rules':
                 rulesSafetyLink.parent().addClass('current_page_item');
                 showRules();
@@ -207,6 +203,10 @@ jQuery(function($) {
                 break;
             case '#photos':
                 showPhotos();
+                break;
+            default:
+                keyInfoLink.parent().addClass('current_page_item');
+
         }
     }
 

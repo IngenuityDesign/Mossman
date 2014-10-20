@@ -20,6 +20,71 @@ function mossman_add_main_style() {
 
 add_action( 'wp_enqueue_scripts', 'mossman_add_js' );
 
+function mossman_add_oembed() {
+    wp_oembed_add_provider( 'http://www.mapmyride.com/*', 'http://54.82.78.195/wp-admin/admin-ajax.php?action=oembed_mapmyride' );
+}
+
+add_action( 'init', 'mossman_add_oembed' );
+
+function mossman_oembed_mapmyride() {
+
+    $url = $_GET['url'];
+    //we need to get the last numbers off of it
+    if (preg_match('#([0-9]+)$#', $url, $matches)) {
+        //we have a match
+        $id = $matches[1];
+    } else {
+        //no match
+        die();
+    }
+
+    $returnArray = array();
+    $preurl = 'http://snippets.mapmycdn.com/routes/view/embedded/';
+
+    //get the title
+    if (preg_match("#[/]([^/0-9]+)(-[0-9]+)$#i", $url, $matches)) {
+        $title = $matches[1];
+
+        $title = str_replace("-", " ", $title);
+        $title = ucwords($title);
+    } else {
+        $title = "Unknown";
+    }
+
+    $width = 747;
+    $height = 370;
+
+    $returnArray['title'] = $title;
+    $returnArray['provider_url'] = "http://teammossman.com";
+    $returnArray['author_name'] = "Mossman";
+    $returnArray['height'] = $height;
+    $returnArray['width'] = $width;
+    $returnArray['html'] = '<iframe id="mapmyfitness_route" src="';
+    $returnArray['html'] .= $preurl . $id;
+    $returnArray['html'] .= '?width='.$width.'&height='.$height.'&line_color=E60f0bdb&rgbhex=DB0B0E&distance_markers=0&unit_type=imperial&map_mode=SATELLITE';
+    $returnArray['html'] .= '" height="'.$height.'" width="'.$width.'" frameborder="0"></iframe>';
+
+    $returnArray['version'] = '1.0';
+    $returnArray['type'] = "rich";
+
+    header("Content-Type: application/json");
+
+    die(json_encode($returnArray));
+
+
+    /*
+     * $preurl /[THIS IS WHAT WE ARE CONCERNED WITH ]30058992[END]&last_updated=2011-03-21T05:08:24-04:00" height="400px" width="100%" frameborder="0"></iframe><div style="text-align: right; padding-right: 20px;">
+     */
+
+    /*
+     * comes from http://www.mapmyride.com/us/bridgeport-ct/park-city-mossman-triathlon-bike-course-route-30058992
+     */
+}
+
+add_action( 'wp_ajax_oembed_mapmyride', 'mossman_oembed_mapmyride' );
+add_action( 'wp_ajax_nopriv_oembed_mapmyride', 'mossman_oembed_mapmyride' );
+
+
 function mossman_add_js() {
 
     wp_enqueue_script( 'modernizr', MOSSMAN_THEME_URI . '/public/scripts/modernizr.min.js', array(), MOSSMAN_THEME_VERSION );

@@ -106,7 +106,7 @@
                                                 <li class="view view-<?php echo $i++; ?>">
                                                     <p><?php the_sub_field('event_map_my_run_content'); ?></p>
                                                     <div class="clearfix">
-                                                        <img alt="" data-src="holder.js/470x302" /><img class="float-right" alt="" data-src="holder.js/240x150" /><img class="float-right" alt="" data-src="holder.js/240x150" />
+                                                        <?php the_sub_field('event_map_my_run_gallery'); ?>
                                                     </div>
                                                 </li>
                                             <?php endwhile; ?>

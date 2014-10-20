@@ -35,11 +35,12 @@ body {
 
 body {
   position: static;
-  font-family: 'Old.Face', Helvetica, Arial, sans-serif;
+  font-family: 'Old Face', Helvetica, Arial, sans-serif !important;
   font-weight: 300;
   background-color: #fff;
   box-sizing: border-box;
   min-height: 100%;
+  color: #6e6e6e;
 }
 
 body.open {
@@ -49,6 +50,9 @@ body.open {
   position: fixed;
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Old Face', Helvetica, Arial, sans-serif !important;
+}
 
 /** QTIP */
 
@@ -203,10 +207,10 @@ a {
 @import '_components';
 @import '_layouts';
 
+/* _slider */
 @import '_slider';
+/* _menus */
 @import '_menus';
-
-
 
 
 @import '_calendar';
@@ -278,7 +282,7 @@ box-shadow:         inset 0px 3px 9px 0px rgba(50, 50, 50, 0.29);
       right: 21px;
       top: 21px;
     }
-    h2 {
+    h2:not(.legend) {
       font-size: 17px;
       text-transform: uppercase;
       color: $blue;
@@ -286,7 +290,26 @@ box-shadow:         inset 0px 3px 9px 0px rgba(50, 50, 50, 0.29);
       line-height: 21px;
       margin-bottom: 8px;
     }
-    p {
+
+    ul {
+      padding-left: 2em;
+      padding-top: .8250em;
+      li {
+        list-style-type: disc;
+        padding-left: 0px;
+        &:before {
+          content: none;
+        }
+      }
+    }
+
+    ul.views {
+      li {
+        list-style-type: none;
+      }
+    }
+
+    p, ul li {
       font-size: 11px;
       line-height: 15px;
     }
@@ -418,4 +441,4 @@ ul.navtabs {
   }
 }
 
-//@import 'fonts';
+@import '_fonts';

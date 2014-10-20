@@ -49,6 +49,7 @@ License: EULA
 }
 
 
+
 .calendar td a {
   display: block;
 }
@@ -141,7 +142,6 @@ ul .sub-menu > li {
     width: 70%;
   }
 }
-
 .navdrawer-container .sub-menu{
   position: relative;
   &:after {
@@ -154,7 +154,9 @@ ul .sub-menu > li {
     padding: 0;
     margin: 0;
     content: ' ';
+
   }
+
   li {
     border-top-style: solid;
     border-width: 1px;
@@ -167,3 +169,4 @@ ul .sub-menu > li {
     }
   }
 }
+

@@ -39,7 +39,20 @@ legend {
   font-size: 11px;
   line-height: 11px;
   border: 1px solid $grayborder;
+  text-transform: uppercase;
   @include linear-gradient(#fbfbfb, $grayborder, $grayborder);
+  &:hover,
+  &:active {
+    @include linear-gradient($grayborder, #fbfbfb);
+    color: $blue;
+    border: 1px solid $grayborder;
+  }
+  &:active {
+    -webkit-box-shadow: inset 3px 4px 1px -1px rgba(190,190,190,0.75);
+    -moz-box-shadow: inset 3px 4px 1px -1px rgba(190,190,190,0.75);
+    box-shadow: inset 3px 4px 1px -1px rgba(190,190,190,0.75);
+
+  }
 }
 
 .button--secondary, a.button--secondary {
@@ -52,6 +65,21 @@ legend {
   font-size: 11px;
   line-height: 11px;
   border: 1px solid #002d62;
+
+  text-transform: uppercase;
+
+  &:hover, &:active {
+    @include linear-gradient(#002d62, #305d92);
+    border-color: #002d62;
+    color: white;
+  }
+
+  &:active {
+    webkit-box-shadow: inset 3px 4px 3px -1px rgba(0,21,58,1);
+    -moz-box-shadow: inset 3px 4px 3px -1px rgba(0,21,58,1);
+    box-shadow: inset 3px 4px 3px -1px rgba(0,21,58,1);
+  }
+
 }
 
 .breadcrumbs {
