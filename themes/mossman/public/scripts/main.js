@@ -121,17 +121,7 @@ jQuery(function($) {
         $(this).parent().addClass('active');
     });
 
-    var showPhotos = function() {
-        var articles = $('article', '.main-container');
-        articles.show();
-        articles.not('.gallery').hide();
-
-    };
-
-    if ($('#nav-photos-show')) {
-        $('#nav-photos-show').click(showPhotos);
-    }
-
+    var photosLink = $('#nav-photos-show');
     var raceDayLink = $('#nav-race-day');
     var rulesSafetyLink = $('#nav-rules-safety');
     var keyInfoLink = $('#nav-key-info');
@@ -154,6 +144,15 @@ jQuery(function($) {
 
     if (raceDayLink) {
         raceDayLink.click(showRaceday);
+    }
+
+    var showPhotos = function() {
+        defaultClick($(this));
+        $('.gallery').show();
+    }
+
+    if (photosLink) {
+        photosLink.click(showPhotos);
     }
 
     var showRules = function() {

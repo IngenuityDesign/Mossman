@@ -132,6 +132,25 @@
                             <?php endif;
                         endforeach;
                     ?>
+                    <?php $gallery = get_field('event_gallery'); ?>
+
+                    <section class="gallery panel">
+                        <h3>Event Photos</h3>
+                        <?php if ($gallery): ?>
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div class="flexslider gallery" style="margin-top: 15px;">
+                                <ul class="slides">
+                                    <?php foreach($gallery as $image): ?>
+                                        <li data-thumb="<?php echo $image['url']; ?>">
+                                            <img src="<?php echo $image['url']; ?>" />
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                            <p>There are no photos to display.</p>
+                        <?php endif; ?>
+                    </section>
 
                     <?php if (get_field('event_show_usa_tri_logo')): ?>
                     <section class="triathlon-logo">
@@ -152,45 +171,7 @@
                     </section>
 
                 </article>
-                <?php $gallery = get_field('event_gallery'); ?>
-                <article class="gallery pad panel">
 
-                    <header>
-                        <?php
-                        $registration = get_field('race_registration_link');
-
-                        if ($registration): ?>
-                            <div class="register">
-
-                                <a href="<?php echo $registration ?>" class="button--secondary button">Register</a>
-                            </div>
-                        <?php endif; ?>
-
-                        <h2><?php the_title(); ?></h2>
-                        <h4><?php printf("%s | %s start", get_field( "race_date" ), get_field( "race_time" )); ?></h4>
-                        <h4><?php echo get_field("race_location"); ?></h4>
-
-                    </header>
-
-                    <hr>
-
-                    <section>
-                        <h3>Event Photos</h3>
-                        <?php if ($gallery): ?>
-                            <!-- Place somewhere in the <body> of your page -->
-                            <div class="flexslider gallery" style="margin-top: 15px;">
-                                <ul class="slides">
-                                    <?php foreach($gallery as $image): ?>
-                                    <li data-thumb="<?php echo $image['url']; ?>">
-                                        <img src="<?php echo $image['url']; ?>" />
-                                    </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-
-                        <?php endif; ?>
-                    </section>
-                </article>
 
             </div>
             <!-- /row -->
