@@ -104,6 +104,11 @@
     }
   }
 
+  .flexslider .slides {
+    padding: 0px !important;
+    margin: 0px;
+  }
+
   .jumbo .slider-item {
     @include transition (opacity 1.0s ease-in 0s);
     padding: 0;
@@ -125,6 +130,12 @@
       margin-right: 0;
     }
 
+  }
+
+  .flex-direction-nav, .flex-direction-nav li {
+    padding: 0px !important;
+    margin: 0px !important;
+    list-style-type: none !important;
   }
 
   .jumbo .slider-item.active,

@@ -334,3 +334,12 @@ function mossman_get_events() {
     return $events;
 
 }
+
+function mossman_nicify_sponsor( $sponsor, $append='' ) {
+
+    $sponsor = rtrim($sponsor, ' .,');
+    $sponsor = preg_replace('#[ -!@\#\\$\[\]/%^&*()+?=~`><{}.,]#', '_', $sponsor);
+
+    $sponsor = strtolower($sponsor);
+    return $sponsor . $append;
+}

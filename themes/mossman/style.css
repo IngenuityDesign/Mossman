@@ -2449,6 +2449,10 @@ main .header .column--left {
   .flexslider .slides > li {
     display: block; }
 
+  .flexslider .slides {
+    padding: 0px !important;
+    margin: 0px; }
+
   .jumbo .slider-item {
     -webkit-transition: opacity 1s ease-in 0s;
     -moz-transition: opacity 1s ease-in 0s;
@@ -2467,6 +2471,11 @@ main .header .column--left {
     .jumbo .slider-item .content {
       padding: 13px 5px 13px 36px;
       margin-right: 0; }
+
+  .flex-direction-nav, .flex-direction-nav li {
+    padding: 0px !important;
+    margin: 0px !important;
+    list-style-type: none !important; }
 
   .jumbo .slider-item.active,
   .jumbo .slider-item.flex-active-slide {

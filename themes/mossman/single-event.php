@@ -134,7 +134,7 @@
                     ?>
                     <?php $gallery = get_field('event_gallery'); ?>
 
-                    <section class="gallery panel">
+                    <section class="subsection gallery panel">
                         <h3>Event Photos</h3>
                         <?php if ($gallery): ?>
                             <!-- Place somewhere in the <body> of your page -->
@@ -166,7 +166,13 @@
 
                     <section class="sponsors">
                         <h3>Thanks to our sponsors</h3>
-                        <img class="img-responsive" src="/wp-content/themes/mossman/public/images/cheat/sponsors.png" alt="Our Sponsors" title="Our sponsors: <?php echo rtrim(implode(', ', $sponsors), ', '); ?>" />
+
+                        <img class="img-responsive" src="/wp-content/themes/mossman/public/images/cheat/sponsors.png" alt="Our Sponsors" title="Our sponsors: <?php echo mossman_nicify_sponsor(rtrim(implode(', ', $sponsors), ', ')); ?>" />
+                        <?php
+                        foreach($sponsors as $sponsor):
+                            echo mossman_nicify_sponsor($sponsor, '.jpg').'<br>';
+                        endforeach;
+                        ?>
 
                     </section>
 

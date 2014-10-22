@@ -81,12 +81,14 @@ jQuery(function($) {
        if ($(this).is('.gallery')) {
 
            $(this).flexslider({
-               startAt: 1,
+               startAt: 0,
 
                prevText: "",           //String: Set the text for the "previous" directionNav item
                nextText: "",
 
                animation: "slide",
+               animationLoop: false,
+               slideshow: false,
                controlNav: "thumbnails"
            });
 
@@ -201,6 +203,7 @@ jQuery(function($) {
                 showTravel();
                 break;
             case '#photos':
+                photosLink.parent().addClass('current_page_item');
                 showPhotos();
                 break;
             default:
