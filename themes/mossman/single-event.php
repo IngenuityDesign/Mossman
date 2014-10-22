@@ -154,7 +154,7 @@
 
                     <?php if (get_field('event_show_usa_tri_logo')): ?>
                     <section class="triathlon-logo">
-                        <img src="/wp-content/themes/mossman/public/images/usa.jpg" alt="USA Tri" />
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/public/images/usa.jpg" alt="USA Tri" />
                     </section>
                     <?php endif; ?>
 
@@ -166,13 +166,16 @@
 
                     <section class="sponsors">
                         <h3>Thanks to our sponsors</h3>
-
-                        <img class="img-responsive" src="/wp-content/themes/mossman/public/images/cheat/sponsors.png" alt="Our Sponsors" title="Our sponsors: <?php echo mossman_nicify_sponsor(rtrim(implode(', ', $sponsors), ', ')); ?>" />
+                        <div class="grid--5">
                         <?php
-                        foreach($sponsors as $sponsor):
-                            echo mossman_nicify_sponsor($sponsor, '.jpg').'<br>';
+                        foreach($sponsors as $k => $sponsor):
+                            $src = get_stylesheet_directory_uri() . '/public/images/sponsors/' . mossman_nicify_sponsor($sponsor, '.png');
+                            ?><div class="grid--item-1">
+                            <img src="<?php echo $src; ?>" alt="<?php echo $sponsor; ?>">
+                            </div><?php
                         endforeach;
                         ?>
+                        </div> <!-- /grid--5 -->
 
                     </section>
 

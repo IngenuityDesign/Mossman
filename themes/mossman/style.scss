@@ -171,3 +171,23 @@ ul .sub-menu > li {
   }
 }
 
+.grid--5 {
+  padding: 12px;
+  .grid--item, .grid--item-1 {
+    width: 20%;
+    float: left;
+    text-align: center;
+  }
+}
+
+.sponsors .grid--5 {
+  .grid--item, .grid--item-1 {
+    height: 115px;
+    line-height: 115px;
+    img {
+      max-height: 115px;
+      width: auto;
+      max-width: 100% !important;
+    }
+  }
+}

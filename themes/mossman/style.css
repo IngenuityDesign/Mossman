@@ -3050,3 +3050,18 @@ ul .sub-menu > li {
     border-bottom: 0px; }
     .navdrawer-container .sub-menu li:nth-child(odd):last-child {
       border-bottom: 1px solid #b0001c; }
+
+.grid--5 {
+  padding: 12px; }
+  .grid--5 .grid--item, .grid--5 .grid--item-1 {
+    width: 20%;
+    float: left;
+    text-align: center; }
+
+.sponsors .grid--5 .grid--item, .sponsors .grid--5 .grid--item-1 {
+  height: 115px;
+  line-height: 115px; }
+  .sponsors .grid--5 .grid--item img, .sponsors .grid--5 .grid--item-1 img {
+    max-height: 115px;
+    width: auto;
+    max-width: 100% !important; }
