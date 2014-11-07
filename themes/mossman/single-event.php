@@ -31,6 +31,24 @@
                     <img src="<?php print MOSSMAN_THEME_URI ?>/public/images/headers/triathlon.png" alt="">
                 </div>
 
+                <div class="mobile--header">
+                    <div class="mobile--image" style="background-image: url('<?php print MOSSMAN_THEME_URI ?>/public/images/headers/triathlon.png');">
+
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><a id="nav-key-info" href="#keyinfo">Key Info</a></li>
+                            <li><a target="_blank" href="<?php echo $registration ? $registration : 'javascript:void(0);'; ?>">Register</a></li>
+                            <li><a id="nav-race-day" href="#raceday">Race Day</a></li>
+                            <li><a id="nav-rules-safety" href="#rules">Rules &amp; Safety</a></li>
+                            <li><a id="nav-travel" href="#travel">Travel</a></li>
+                            <li><a target="_blank" href="<?php the_field('event_results_link'); ?>">Results</a></li>
+                            <li><a id="nav-photos-show" href="#photos">Photos</a></li>
+                            <li><a <?php $x = get_field('event_volunteer_link'); if ($x && !stristr($x, 'mailto')) echo 'target="_blank" '; ?>href="<?php the_field('event_volunteer_link'); ?>">Volunteer</a></li>
+                        </ul>
+                    </div>
+                </div>
+
 
             </div>
         </div>

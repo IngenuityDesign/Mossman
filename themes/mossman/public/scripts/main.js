@@ -154,7 +154,11 @@ jQuery(function($) {
     }
 
     if (photosLink) {
-        photosLink.click(showPhotos);
+        photosLink.click(function() {
+            window.location.href = photosLink.attr('href');
+            window.location.reload();
+
+        });
     }
 
     var showRules = function() {
